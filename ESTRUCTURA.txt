@@ -1,0 +1,145 @@
+Zona2/
+│
+├── 📄 DOCUMENTACIÓN (6 archivos)
+│   ├── README.md              # Documentación técnica completa
+│   ├── RESUMEN.md             # Resumen ejecutivo del proyecto
+│   ├── PROYECTO.md            # Detalles de implementación
+│   ├── QUICKSTART.md          # Guía de inicio rápido
+│   ├── SCREENS.md             # Guía visual de las 4 pantallas
+│   └── ESTRUCTURA.txt         # Este archivo (árbol del proyecto)
+│
+├── 🔧 CONFIGURACIÓN (5 archivos)
+│   ├── package.json           # Dependencias y scripts
+│   ├── vite.config.js         # Configuración de Vite
+│   ├── tailwind.config.js     # Paleta de colores y tema
+│   ├── postcss.config.js      # Procesamiento de CSS
+│   └── index.html             # HTML base con fuentes
+│
+├── 🚀 INSTALACIÓN
+│   └── INSTALL.sh             # Script automático de instalación
+│
+└── 💻 CÓDIGO FUENTE (src/)
+    │
+    ├── main.jsx               # Punto de entrada React
+    ├── App.jsx                # Router y layout principal
+    ├── index.css              # Estilos globales + dark mode
+    │
+    ├── 🧩 components/         # Componentes reutilizables
+    │   ├── BottomNav.jsx      # Navegación inferior (4 tabs)
+    │   └── Logo.jsx           # Logo Zona² con animación
+    │
+    └── 📱 screens/            # 4 Pantallas Principales
+        ├── Dashboard.jsx      # 1. Home con stats y FC
+        ├── LiveActivity.jsx   # 2. Tracking en tiempo real
+        ├── Community.jsx      # 3. Social feed y retos
+        └── Rewards.jsx        # 4. Wallet y ganancias
+
+═══════════════════════════════════════════════════════════════
+
+📊 ESTADÍSTICAS DEL PROYECTO
+
+Archivos Totales:     20 archivos
+Documentación:        6 documentos (2,500+ líneas)
+Código React:         7 componentes (1,200+ líneas)
+Configuración:        5 archivos config
+Pantallas:            4 pantallas completas
+Componentes:          2 componentes compartidos
+
+═══════════════════════════════════════════════════════════════
+
+🎯 PANTALLAS IMPLEMENTADAS
+
+1. Dashboard (/)
+   - Frecuencia cardíaca con gráfico circular
+   - Zona 2 destacada
+   - Stats: Pasos, Km, Calorías
+   - Botón "Iniciar Carrera"
+   - Progreso mensual
+
+2. Live Activity (/live)
+   - Mapa con ruta animada
+   - Temporizador funcional
+   - Métricas: Tiempo, Distancia, Ritmo
+   - Zonas cardíacas (1-5)
+   - Control Pausar/Finalizar
+
+3. Community (/community)
+   - Retos activos con progreso
+   - Leaderboard Top 5
+   - Feed social de actividades
+   - Sistema de likes/comentarios
+   - Recompensas Z2
+
+4. Rewards (/rewards)
+   - Wallet $1,450 MXN
+   - Gráfico de ganancias
+   - Historial de transacciones
+   - Opciones de canje
+   - Stats del mes
+
+═══════════════════════════════════════════════════════════════
+
+🎨 TECNOLOGÍAS UTILIZADAS
+
+Frontend:
+  • React 18.2
+  • Vite 5.0
+  • React Router DOM 6.20
+
+Styling:
+  • Tailwind CSS 3.3
+  • PostCSS + Autoprefixer
+  • Custom CSS animations
+
+Visualización:
+  • Recharts 2.10 (PieChart, AreaChart)
+  • Framer Motion 10.16 (Animations)
+  • Lucide React 0.294 (Icons)
+
+═══════════════════════════════════════════════════════════════
+
+🎨 PALETA DE COLORES
+
+Primario:    #FF6B35 (Naranja vibrante)
+Acento:      #FFB800 (Amarillo dorado)
+Fondo:       #0A0E14 (Negro profundo)
+Tarjetas:    #11151C (Gris oscuro)
+Bordes:      #252B38 (Gris medio)
+
+Zonas:
+  Z1: #6B7280 (Gris)
+  Z2: #3B82F6 (Azul) ← Zona objetivo
+  Z3: #10B981 (Verde)
+  Z4: #F59E0B (Amarillo)
+  Z5: #EF4444 (Rojo)
+
+═══════════════════════════════════════════════════════════════
+
+✅ CARACTERÍSTICAS DESTACADAS
+
+UI/UX:
+  ✓ Dark mode profesional
+  ✓ Diseño mobile-first (390x844px)
+  ✓ Phone container con notch
+  ✓ Navegación inferior fija
+  ✓ Animaciones fluidas
+
+Interactividad:
+  ✓ Navegación entre pantallas
+  ✓ Temporizador funcional
+  ✓ Gráficos interactivos
+  ✓ Hover effects
+  ✓ Tooltips en charts
+
+Datos:
+  ✓ Usuario: Carlos Hernández
+  ✓ Stats realistas
+  ✓ Historial de 6 meses
+  ✓ Leaderboard top 5
+  ✓ Feed social
+
+═══════════════════════════════════════════════════════════════
+
+Zona² © 2025 - Running Experience
+"¡Corre, Conecta y Gana!"
+
