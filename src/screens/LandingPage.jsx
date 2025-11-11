@@ -146,7 +146,7 @@ function LandingPage() {
                 <div className="stat-label">Corredores en lista</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">+5</div>
+                <div className="stat-number">5+</div>
                 <div className="stat-label">Eventos</div>
               </div>
               <div className="stat-item">
