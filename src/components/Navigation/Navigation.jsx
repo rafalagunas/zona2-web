@@ -1,4 +1,47 @@
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+
 function Navigation({ onScrollToSection, onOpenModal }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleNavClick = (callback) => {
+    callback();
+    closeMenu();
+  };
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  // Close menu on ESC key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMenuOpen]);
+
   return (
     <nav className="landing-nav">
       <div className="nav-container">
@@ -10,21 +53,42 @@ function Navigation({ onScrollToSection, onOpenModal }) {
           />
           <span className="logo-text">Zona²</span>
         </div>
-        <div className="nav-links">
+        
+        {/* Hamburger Button */}
+        <button
+          className="nav-hamburger"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div 
+            className="nav-overlay"
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Navigation Links */}
+        <div className={`nav-links ${isMenuOpen ? 'nav-links-open' : ''}`}>
           <button
-            onClick={() => onScrollToSection("inicio")}
+            onClick={() => handleNavClick(() => onScrollToSection("inicio"))}
             className="nav-link"
           >
             Inicio
           </button>
           <button
-            onClick={() => onScrollToSection("acerca")}
+            onClick={() => handleNavClick(() => onScrollToSection("acerca"))}
             className="nav-link"
           >
             Acerca del Proyecto
           </button>
           <button
-            onClick={onOpenModal}
+            onClick={() => handleNavClick(onOpenModal)}
             className="nav-link-btn"
           >
             Pre-registro

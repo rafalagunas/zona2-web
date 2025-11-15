@@ -65,7 +65,23 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, onChange, 
                   name="nombre"
                   value={formData.nombre}
                   onChange={onChange}
+                  onKeyDown={(e) => {
+                    // Permitir teclas de control (Backspace, Delete, Tab, Arrow keys, etc.)
+                    const allowedKeys = [
+                      "Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight",
+                      "ArrowUp", "ArrowDown", "Home", "End"
+                    ];
+                    if (allowedKeys.includes(e.key)) {
+                      return;
+                    }
+                    // Solo permitir letras, espacios, acentos, ñ y guiones
+                    if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]$/.test(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
                   placeholder="Juan Pérez"
+                  pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]+"
+                  title="Solo se permiten letras, espacios y guiones"
                   required
                 />
               </div>
@@ -79,6 +95,8 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, onChange, 
                   value={formData.email}
                   onChange={onChange}
                   placeholder="juan@ejemplo.com"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  title="Ingresa un correo electrónico válido"
                   required
                 />
               </div>
@@ -91,7 +109,23 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, onChange, 
                   name="telefono"
                   value={formData.telefono}
                   onChange={onChange}
+                  onKeyDown={(e) => {
+                    // Permitir teclas de control
+                    const allowedKeys = [
+                      "Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight",
+                      "ArrowUp", "ArrowDown", "Home", "End"
+                    ];
+                    if (allowedKeys.includes(e.key)) {
+                      return;
+                    }
+                    // Solo permitir números, espacios, +, -, paréntesis
+                    if (!/^[\d\s+\-()]$/.test(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
                   placeholder="+52 999 123 4567"
+                  pattern="[\d\s+\-()]+"
+                  title="Solo se permiten números, espacios, +, - y paréntesis"
                 />
               </div>
 
@@ -124,9 +158,32 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, onChange, 
                   name="age"
                   value={formData.age}
                   onChange={onChange}
+                  onKeyDown={(e) => {
+                    // Permitir teclas de control
+                    const allowedKeys = [
+                      "Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight",
+                      "ArrowUp", "ArrowDown", "Home", "End"
+                    ];
+                    if (allowedKeys.includes(e.key)) {
+                      return;
+                    }
+                    // Solo permitir números
+                    if (!/^\d$/.test(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  onBlur={(e) => {
+                    // Validar rango al perder el foco
+                    const value = parseInt(e.target.value, 10);
+                    if (e.target.value !== "" && (value < 18 || value > 99)) {
+                      e.target.setCustomValidity("La edad debe estar entre 18 y 99 años");
+                    } else {
+                      e.target.setCustomValidity("");
+                    }
+                  }}
                   placeholder="25"
                   min="18"
-                  max="120"
+                  max="99"
                   required
                 />
               </div>

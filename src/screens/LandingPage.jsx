@@ -42,9 +42,50 @@ function LandingPage() {
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    let filteredValue = value;
+
+    // Validaciones según el tipo de campo
+    switch (name) {
+      case "nombre":
+        // Solo letras, espacios, acentos, ñ y guiones
+        filteredValue = value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]/g, "");
+        break;
+      
+      case "email":
+        // El tipo email ya valida el formato, pero permitimos caracteres válidos
+        filteredValue = value;
+        break;
+      
+      case "telefono":
+        // Solo números, espacios, +, -, paréntesis
+        filteredValue = value.replace(/[^\d\s+\-()]/g, "");
+        break;
+      
+      case "age":
+        // Solo números, limitar a máximo 2 dígitos
+        filteredValue = value.replace(/[^\d]/g, "");
+        if (filteredValue.length > 2) {
+          filteredValue = filteredValue.slice(0, 2);
+        }
+        // Validar rango solo si el valor completo está fuera del rango permitido
+        if (filteredValue !== "") {
+          const numValue = parseInt(filteredValue, 10);
+          if (numValue > 99) {
+            filteredValue = "99";
+          }
+          // Permitir escribir números menores a 18 mientras se escribe (ej: "1" para luego escribir "18")
+          // La validación completa se hace en onBlur
+        }
+        break;
+      
+      default:
+        filteredValue = value;
+    }
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: filteredValue,
     });
   };
 
