@@ -20,26 +20,107 @@ function LandingPage() {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí se conectaría con el backend
-    console.log("Pre-registro:", formData);
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormData({ 
-        nombre: "", 
-        email: "", 
-        telefono: "",
-        smartwatchBrand: "",
-        age: "",
-        gender: "",
-        cellphoneOS: "",
-        runningExperience: "",
+  // Función para convertir formData a JSON y preparar para envío
+  const prepareFormData = () => {
+    // Convertir age a número si tiene valor
+    const dataToSend = {
+      ...formData,
+      age: formData.age ? parseInt(formData.age, 10) : null,
+    };
+
+    // Remover campos vacíos opcionales (excepto telefono que puede estar vacío)
+    const cleanedData = Object.entries(dataToSend).reduce((acc, [key, value]) => {
+      // Mantener telefono aunque esté vacío (es opcional)
+      if (key === "telefono" || value !== "") {
+        acc[key] = value;
+      }
+      return acc;
+    }, {});
+
+    return cleanedData;
+  };
+
+  // Función para enviar datos al endpoint
+  const submitFormData = async (data) => {
+    try {
+      setIsSubmitting(true);
+      
+      // Convertir a JSON
+      const jsonData = JSON.stringify(data, null, 2);
+      
+      // Por ahora solo imprimir el objeto JSON (para desarrollo)
+      console.log("📤 Datos del formulario (JSON):");
+      console.log(jsonData);
+      console.log("📦 Objeto JavaScript:");
+      console.log(data);
+      
+      // TODO: Descomentar cuando el endpoint esté listo
+      /*
+      const response = await fetch('https://api.ejemplo.com/api/preregister', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonData,
       });
-      setFormSubmitted(false);
-      closeModal();
-    }, 3000);
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log('✅ Respuesta del servidor:', result);
+      return result;
+      */
+
+      // Simular delay de red para desarrollo
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      return { success: true, message: "Pre-registro exitoso" };
+    } catch (error) {
+      console.error("❌ Error al enviar formulario:", error);
+      throw error;
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Preparar datos del formulario
+    const dataToSend = prepareFormData();
+    
+    try {
+      // Enviar datos al endpoint
+      await submitFormData(dataToSend);
+      
+      // Marcar como enviado exitosamente
+      setFormSubmitted(true);
+      
+      // Limpiar formulario y cerrar modal después de 3 segundos
+      setTimeout(() => {
+        setFormData({ 
+          nombre: "", 
+          email: "", 
+          telefono: "",
+          smartwatchBrand: "",
+          age: "",
+          gender: "",
+          cellphoneOS: "",
+          runningExperience: "",
+        });
+        setFormSubmitted(false);
+        closeModal();
+      }, 3000);
+    } catch (error) {
+      // Manejar errores (por ahora solo en consola)
+      console.error("Error en el envío del formulario:", error);
+      // TODO: Mostrar mensaje de error al usuario
+      alert("Hubo un error al enviar el formulario. Por favor, intenta de nuevo.");
+    }
   };
 
   const handleChange = (e) => {
@@ -155,6 +236,7 @@ function LandingPage() {
         onClose={closeModal}
         formData={formData}
         formSubmitted={formSubmitted}
+        isSubmitting={isSubmitting}
         onChange={handleChange}
         onSubmit={handleSubmit}
       />

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, DollarSign, Clock, Check, X } from "lucide-react";
 
-function PreregisterModal({ isOpen, onClose, formData, formSubmitted, onChange, onSubmit }) {
+function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitting, onChange, onSubmit }) {
   if (!isOpen) return null;
 
   return (
@@ -240,13 +240,15 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, onChange, 
               <button
                 type="submit"
                 className="btn-submit"
-                disabled={formSubmitted}
+                disabled={formSubmitted || isSubmitting}
               >
                 {formSubmitted ? (
                   <>
                     <Check size={20} />
                     ¡Registrado exitosamente!
                   </>
+                ) : isSubmitting ? (
+                  "Enviando..."
                 ) : (
                   "Registrarme ahora"
                 )}
