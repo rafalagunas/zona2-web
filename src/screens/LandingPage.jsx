@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation/Navigation";
 import HeroSection from "../components/HeroSection/HeroSection";
 import AboutSection from "../components/AboutSection/AboutSection";
 import SponsorsSection from "../components/SponsorsSection/SponsorsSection";
+import FAQSection from "../components/FAQSection/FAQSection";
 import PreregisterModal from "../components/PreregisterModal/PreregisterModal";
 import Footer from "../components/Footer/Footer";
 
@@ -143,9 +144,11 @@ function LandingPage() {
         onOpenModal={openModal}
       />
       
+      <SponsorsSection />
+      
       <AboutSection />
       
-      <SponsorsSection />
+      <FAQSection />
       
       <PreregisterModal
         isOpen={isModalOpen}
