@@ -16,6 +16,13 @@ import {
   TrendingUp,
   Shield,
   MapPin,
+  Zap,
+  Percent,
+  Crown,
+  Sparkles,
+  UsersRound,
+  Store,
+  Medal,
 } from "lucide-react";
 
 function AboutSection() {
@@ -29,9 +36,9 @@ function AboutSection() {
           transition={{ duration: 0.6 }}
           className="section-header"
         >
-          <h2 className="section-title">¿Cómo ganas en Zona²?</h2>
+          <h2 className="section-title">Acerca del Proyecto</h2>
           <p className="section-subtitle">
-            Zona2 te paga por solo correr, así de simple.
+            Transforma tu motivación deportiva en reconocimiento real
           </p>
         </motion.div>
 
@@ -44,13 +51,11 @@ function AboutSection() {
           className="intro-text"
         >
           <p>
-            Como <strong>Runner</strong>, ganas recompensas por tu constancia
-            y por invitar nuevos corredores. Si eres{" "}
-            <strong>Pacer Certificado</strong>, lideras rutas, acompañas
-            visitantes y cobras por cada experiencia. Y como{" "}
-            <strong>Runner Visitante</strong>, descubres nuevas ciudades
-            corriendo junto a pacers locales que te guían con seguridad y
-            energía.
+            Z2 es una aplicación gratuita creada para transformar la motivación deportiva en reconocimiento real. 
+            Su estructura combina tecnología, comunidad y gamificación para convertir cada actividad física, 
+            logro y conexión social en valor digital. La plataforma promueve una economía simbólica, donde los 
+            corredores acumulan puntos por su esfuerzo y los canjean por beneficios, descuentos o reconocimiento 
+            dentro de la comunidad.
           </p>
         </motion.div>
 
@@ -67,94 +72,77 @@ function AboutSection() {
               <Users size={40} />
             </div>
             <div>
-              <h3 className="role-title">Runner</h3>
-              <p className="role-subtitle">Ganas así</p>
+              <h3 className="role-title">Beneficios del Runner</h3>
+              <p className="role-subtitle">Tu esfuerzo se convierte en valor</p>
             </div>
           </div>
 
           <div className="role-benefits">
             <div className="benefit-row">
-              <Target size={20} />
-              <div>
-                <strong>Actividad diaria:</strong> suma días activos y
-                desbloquea tu bono mensual.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <Calendar size={20} />
-              <div>
-                <strong>Meta 20 días/mes:</strong> asegura tu recompensa fija
-                por constancia.
-              </div>
-            </div>
-            <div className="benefit-row">
               <Gift size={20} />
               <div>
-                <strong>Invitaciones:</strong> por cada nuevo runner válido
-                recibes un bono inmediato.
+                <strong>10,000 puntos de bienvenida:</strong> al registrarte recibes puntos válidos por 90 días.
               </div>
             </div>
             <div className="benefit-row">
-              <UserCheck size={20} />
+              <Percent size={20} />
               <div>
-                <strong>Haz pacers a tus amigos:</strong> cuando se
-                certifiquen, tus beneficios escalan.
+                <strong>Descuentos reales:</strong> canjea puntos en carreras y comercios asociados (hasta 50% de descuento).
               </div>
             </div>
             <div className="benefit-row">
-              <Trophy size={20} />
+              <Zap size={20} />
               <div>
-                <strong>Retos y medallas:</strong> logros que añaden Z2 y
-                mejoran tu ranking.
+                <strong>Acumulación ilimitada:</strong> gana puntos por actividad, logros y participación social.
               </div>
             </div>
             <div className="benefit-row">
               <Wallet size={20} />
               <div>
-                <strong>Wallet automática:</strong> tus bonos se acumulan y se
-                liquidan una vez al año.
+                <strong>Wallet digital:</strong> consulta tu saldo, historial de canjes y ahorro total acumulado.
               </div>
             </div>
             <div className="benefit-row">
-              <Repeat size={20} />
+              <Trophy size={20} />
               <div>
-                <strong>Renovación auto-liquidable:</strong> la membresía se
-                descuenta del saldo acumulado.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <Star size={20} />
-              <div>
-                <strong>Eventos y promos:</strong> participa en sesiones
-                especiales con recompensas extra.
+                <strong>Rankings y retos:</strong> participa en competencias grupales y visualiza tu progreso.
               </div>
             </div>
             <div className="benefit-row">
               <ThumbsUp size={20} />
               <div>
-                <strong>Reputación Z2:</strong> recibe Z2 de otros runners y
-                sube de nivel.
+                <strong>Intercambio de Zonas:</strong> otorga o recibe reconocimiento social y gana puntos extra.
               </div>
             </div>
             <div className="benefit-row">
-              <BarChart3 size={20} />
+              <UsersRound size={20} />
               <div>
-                <strong>Panel de control:</strong> sigue puntos, invitaciones
-                y proyección de ganancias.
+                <strong>Referidos ilimitados:</strong> gana 500 puntos por cada nuevo corredor que invites.
+              </div>
+            </div>
+            <div className="benefit-row">
+              <Crown size={20} />
+              <div>
+                <strong>Niveles de estatus:</strong> avanza de Bronce a Élite según tu constancia y puntos acumulados.
+              </div>
+            </div>
+            <div className="benefit-row">
+              <Sparkles size={20} />
+              <div>
+                <strong>Notificaciones inteligentes:</strong> alertas personalizadas de logros y progreso.
               </div>
             </div>
           </div>
 
           <div className="role-cta">
-            <DollarSign size={24} />
+            <Star size={24} />
             <p>
-              <strong>Siempre ganas:</strong> por correr, invitar y hacer
-              crecer tu red.
+              <strong>Cada acción refuerza tu avance:</strong> correr ya no es solo entrenar, es subir de nivel y ser reconocido.
             </p>
           </div>
         </motion.div>
 
-        {/* Pacer Section */}
+        {/* Gamification Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -164,92 +152,98 @@ function AboutSection() {
         >
           <div className="role-header">
             <div className="role-icon">
-              <Award size={40} />
+              <Medal size={40} />
             </div>
             <div>
-              <h3 className="role-title">Pacer Certificado</h3>
-              <p className="role-subtitle">Ganas así</p>
+              <h3 className="role-title">Sistema de Gamificación</h3>
+              <p className="role-subtitle">Niveles Status Runner</p>
             </div>
           </div>
 
           <div className="role-benefits">
             <div className="benefit-row">
-              <DollarSign size={20} />
+              <Medal size={20} />
               <div>
-                <strong>Sesiones pagadas:</strong> ingresos por acompañar a
-                visitantes en rutas locales.
+                <strong>🥉 Bronce:</strong> Registro + 10,000 pts de bienvenida. Acceso a descuentos básicos y canjes iniciales.
               </div>
             </div>
             <div className="benefit-row">
-              <Gift size={20} />
+              <Award size={20} />
               <div>
-                <strong>Propinas:</strong> mejora tus ingresos con servicios
-                premium y buena reputación.
+                <strong>🥈 Plata:</strong> 20,000 pts acumulados o 3 carreras completadas. Descuentos hasta 20%, ranking social y retos mensuales.
               </div>
             </div>
             <div className="benefit-row">
-              <Calendar size={20} />
+              <Trophy size={20} />
               <div>
-                <strong>Disponibilidad:</strong> abre tu agenda y acepta
-                reservas cuando te convenga.
+                <strong>🥇 Oro:</strong> 50,000 pts acumulados o membresía activa. Canje ampliado (hasta 40%), insignia destacada en perfil.
               </div>
             </div>
             <div className="benefit-row">
-              <TrendingUp size={20} />
+              <Crown size={20} />
               <div>
-                <strong>Niveles de pacer:</strong> mejores calificaciones →
-                más visibilidad y tarifas.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <Star size={20} />
-              <div>
-                <strong>Extras vendidos:</strong> hidratación, fotos, kits y
-                rutas personalizadas.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <Users size={20} />
-              <div>
-                <strong>Bonos por invitación:</strong> si traes nuevos
-                runners/pacers también sumas.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <Wallet size={20} />
-              <div>
-                <strong>Comisiones transparentes:</strong> ves cada cargo y
-                pago en tu wallet.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <Repeat size={20} />
-              <div>
-                <strong>Recurrentes:</strong> paquetes por día/semana con
-                ingresos acumulados.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <Shield size={20} />
-              <div>
-                <strong>Seguridad & seguro:</strong> confianza para ti y tus
-                clientes en cada sesión.
-              </div>
-            </div>
-            <div className="benefit-row">
-              <UserCheck size={20} />
-              <div>
-                <strong>Marca personal:</strong> perfil público con rutas,
-                fotos y reviews verificados.
+                <strong>💎 Élite:</strong> 100,000 pts acumulados + retos completados. Descuentos premium (hasta 50%), acceso preferente a carreras y eventos especiales.
               </div>
             </div>
           </div>
 
           <div className="role-cta">
-            <MapPin size={24} />
+            <TrendingUp size={24} />
             <p>
-              <strong>Monetiza tu experiencia</strong> corriendo y lidera
-              rutas en tu ciudad.
+              <strong>Cada ascenso genera una notificación celebratoria</strong> fortaleciendo tu conexión emocional con la app.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Organizers & Establishments Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="role-section runner-section"
+        >
+          <div className="role-header">
+            <div className="role-icon">
+              <Store size={40} />
+            </div>
+            <div>
+              <h3 className="role-title">Para Organizadores y Establecimientos</h3>
+              <p className="role-subtitle">Amplifica tu alcance</p>
+            </div>
+          </div>
+
+          <div className="role-benefits">
+            <div className="benefit-row">
+              <Calendar size={20} />
+              <div>
+                <strong>Organizadores:</strong> Publica carreras ilimitadas, emite puntos, accede a analítica avanzada y obtén el distintivo "Organizador Verificado".
+              </div>
+            </div>
+            <div className="benefit-row">
+              <Store size={20} />
+              <div>
+                <strong>Establecimientos:</strong> Afíliate y ofrece descuentos a corredores Z2. Amplifica tu experiencia a través de beneficios tangibles.
+              </div>
+            </div>
+            <div className="benefit-row">
+              <BarChart3 size={20} />
+              <div>
+                <strong>Panel de gestión:</strong> Administra canjes, valida QR codes y visualiza estadísticas de participación.
+              </div>
+            </div>
+            <div className="benefit-row">
+              <Users size={20} />
+              <div>
+                <strong>Comunidad activa:</strong> Conecta con runners comprometidos que valoran tu oferta.
+              </div>
+            </div>
+          </div>
+
+          <div className="role-cta">
+            <Target size={24} />
+            <p>
+              <strong>Z2 une a runners, organizadores y establecimientos</strong> bajo un modelo sostenible que se nutre de la interacción y el compromiso.
             </p>
           </div>
         </motion.div>

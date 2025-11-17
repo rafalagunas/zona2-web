@@ -31,14 +31,13 @@ function HeroSection({ onScrollToSection, onOpenModal }) {
             Corre en <span className="text-gradient">Zona 2,</span>
             <br />
             <span className="text-gradient">Conecta</span> con corredores,
-            <br />y <span className="text-gradient">Gana</span> dinero real
+            <br />y <span className="text-gradient">Gana</span> puntos reales
           </h1>
 
           <p className="hero-description">
-            Zona2 te paga por solo correr, así de simple. Como Runner, ganas
-            por tu constancia e invitaciones. Como Pacer Certificado, lideras
-            rutas y cobras por cada experiencia. Como Visitante, descubres
-            nuevas ciudades con guías locales.
+            Z2 es una aplicación gratuita que transforma tu motivación deportiva en reconocimiento real. 
+            Acumula puntos por tu esfuerzo, canjéalos por descuentos en carreras y establecimientos, 
+            y forma parte de una comunidad que valora cada paso.
           </p>
 
           <div className="hero-buttons">
@@ -58,16 +57,16 @@ function HeroSection({ onScrollToSection, onOpenModal }) {
 
           <div className="hero-stats">
             <div className="stat-item">
-              <div className="stat-number">1000+</div>
-              <div className="stat-label">Corredores en lista</div>
+              <div className="stat-number">10,000</div>
+              <div className="stat-label">Puntos de bienvenida</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Eventos</div>
+              <div className="stat-number">50%</div>
+              <div className="stat-label">Descuento máximo</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">15+</div>
-              <div className="stat-label">Ciudades</div>
+              <div className="stat-number">∞</div>
+              <div className="stat-label">Puntos ilimitados</div>
             </div>
           </div>
         </motion.div>

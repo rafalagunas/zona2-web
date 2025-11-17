@@ -7,32 +7,45 @@ function FAQSection() {
 
   const faqs = [
     {
-      question: "¿Qué es Zona²?",
+      question: "¿Qué es Z2?",
       answer:
-        "Zona² es una plataforma que conecta corredores y pacers certificados. Los runners ganan recompensas por correr, invitar amigos y participar en retos. Los pacers certificados pueden monetizar su experiencia liderando rutas y acompañando a visitantes.",
+        "Z2 es una aplicación gratuita creada para transformar la motivación deportiva en reconocimiento real. Combina tecnología, comunidad y gamificación para convertir cada actividad física, logro y conexión social en valor digital. Los corredores acumulan puntos por su esfuerzo y los canjean por beneficios, descuentos o reconocimiento dentro de la comunidad.",
     },
     {
-      question: "¿Cómo puedo ganar dinero corriendo?",
+      question: "¿Cómo obtengo puntos en Z2?",
       answer:
-        "Como Runner, ganas recompensas por mantener actividad diaria, cumplir metas mensuales (20 días/mes), invitar nuevos corredores y participar en retos. Tus bonos se acumulan en tu wallet y se liquidan una vez al año.",
+        "Ganas puntos de múltiples formas: recibes 10,000 puntos de bienvenida al registrarte, +200 puntos por completar una carrera diaria, +50 puntos por otorgar una Zona, +100 puntos por recibir una Zona, +500 puntos por referir un nuevo usuario, +1,000 puntos por participar en carreras Z2, y puntos adicionales por completar retos, mantener actividad constante y participar en grupos.",
     },
     {
-      question: "¿Qué es un Pacer Certificado?",
+      question: "¿Qué son los niveles Status Runner?",
       answer:
-        "Un Pacer Certificado es un corredor experimentado que lidera rutas locales y acompaña a visitantes. Puedes ganar dinero por cada sesión que realices, recibir propinas y vender servicios adicionales como hidratación, fotos o rutas personalizadas.",
+        "Los niveles Status Runner reflejan tu compromiso en la plataforma: 🥉 Bronce (Registro + 10,000 pts), 🥈 Plata (20,000 pts o 3 carreras), 🥇 Oro (50,000 pts o membresía activa), y 💎 Élite (100,000 pts + retos completados). Cada nivel ofrece beneficios progresivos, desde descuentos básicos hasta descuentos premium del 50% y acceso preferente a eventos especiales.",
     },
     {
-      question: "¿Cómo me convierto en Pacer Certificado?",
+      question: "¿Cómo funcionan los descuentos con puntos?",
       answer:
-        "Para convertirte en Pacer Certificado, necesitas cumplir con ciertos requisitos de experiencia y completar un proceso de certificación. Una vez certificado, podrás crear rutas, establecer tu disponibilidad y comenzar a recibir reservas.",
+        "Puedes canjear puntos por descuentos en carreras y establecimientos afiliados. La escala va desde 5,000 puntos (5% descuento) hasta 50,000 puntos (50% descuento máximo). El sistema calcula automáticamente el ahorro y lo muestra en tu wallet digital. Los organizadores y establecimientos eligen el nivel de descuento que ofrecerán.",
     },
     {
-      question: "¿Cuándo puedo retirar mis ganancias?",
+      question: "¿Qué es el intercambio de Zonas?",
       answer:
-        "Las ganancias se acumulan en tu wallet durante el año y se liquidan una vez al año. La membresía se renueva automáticamente descontándose del saldo acumulado si tienes fondos suficientes.",
+        "El intercambio de Zonas es el componente social más poderoso de Z2. Otorgar una Zona significa reconocer el esfuerzo de otro corredor. Por cada Zona otorgada, el emisor gana 50 puntos y el receptor 100 puntos. Cada Zona aparece en el perfil del usuario como símbolo de prestigio dentro de la comunidad. No existe límite en la cantidad de Zonas otorgadas o recibidas.",
     },
-  
- 
+    {
+      question: "¿Cómo funciona el sistema de referidos?",
+      answer:
+        "Puedes invitar a nuevos miembros de manera ilimitada. Por cada nuevo usuario que se registre con tu enlace o QR, obtienes 500 puntos automáticos. El proceso es simple y transparente, sin jerarquías ni pagos cruzados. Este esquema impulsa el crecimiento orgánico y convierte a cada runner en embajador activo de la marca Z2.",
+    },
+    {
+      question: "¿Qué es el wallet digital?",
+      answer:
+        "El wallet digital es tu panel personal donde puedes consultar tu saldo total de puntos, puntos por vencer, historial de canjes, ahorro equivalente en pesos y logros alcanzados. El sistema calcula automáticamente el importe total ahorrado y genera mensajes motivacionales. También refleja los puntos obtenidos por referidos, Zonas, retos y niveles.",
+    },
+    {
+      question: "¿Cómo funciona el canje en carreras y establecimientos?",
+      answer:
+        "En carreras: seleccionas una carrera marcada con 'Acepta Puntos Z2', visualizas tu saldo, eliges cuántos puntos aplicar y generas un QR de validación. El organizador escanea el código y el descuento se aplica de inmediato. En establecimientos: seleccionas un comercio afiliado, generas tu QR de canje, y el establecimiento lo valida en su panel. Los puntos se descuentan y el ahorro se actualiza en tu wallet.",
+    },
   ];
 
   const toggleFAQ = (index) => {
