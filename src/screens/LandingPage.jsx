@@ -6,17 +6,13 @@ import SponsorsSection from "../components/SponsorsSection/SponsorsSection";
 import FAQSection from "../components/FAQSection/FAQSection";
 import PreregisterModal from "../components/PreregisterModal/PreregisterModal";
 import Footer from "../components/Footer/Footer";
+import APIs from "../services/services/APIs";
 
 function LandingPage() {
   const [formData, setFormData] = useState({
-    nombre: "",
+    firstName: "",
     email: "",
-    telefono: "",
-    smartwatchBrand: "",
-    age: "",
-    gender: "",
-    cellphoneOS: "",
-    runningExperience: "",
+    phone: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,22 +20,19 @@ function LandingPage() {
 
   // Función para convertir formData a JSON y preparar para envío
   const prepareFormData = () => {
-    // Convertir age a número si tiene valor
+    // Mapear los datos al formato que espera el backend
     const dataToSend = {
-      ...formData,
-      age: formData.age ? parseInt(formData.age, 10) : null,
+      firstName: formData.firstName.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
     };
 
-    // Remover campos vacíos opcionales (excepto telefono que puede estar vacío)
-    const cleanedData = Object.entries(dataToSend).reduce((acc, [key, value]) => {
-      // Mantener telefono aunque esté vacío (es opcional)
-      if (key === "telefono" || value !== "") {
-        acc[key] = value;
-      }
-      return acc;
-    }, {});
+    // Validar que todos los campos requeridos estén presentes
+    if (!dataToSend.firstName || !dataToSend.email || !dataToSend.phone) {
+      throw new Error("Por favor completa todos los campos requeridos");
+    }
 
-    return cleanedData;
+    return dataToSend;
   };
 
   // Función para enviar datos al endpoint
@@ -47,41 +40,24 @@ function LandingPage() {
     try {
       setIsSubmitting(true);
       
-      // Convertir a JSON
-      const jsonData = JSON.stringify(data, null, 2);
+      // Log para desarrollo
+      console.log("📤 Enviando datos del formulario:", data);
       
-      // Por ahora solo imprimir el objeto JSON (para desarrollo)
-      console.log("📤 Datos del formulario (JSON):");
-      console.log(jsonData);
-      console.log("📦 Objeto JavaScript:");
-      console.log(data);
+      // Llamar a la API para crear el usuario
+      const response = await APIs.createUser(data);
       
-      // TODO: Descomentar cuando el endpoint esté listo
-      /*
-      const response = await fetch('https://api.ejemplo.com/api/preregister', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: jsonData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} ${response.statusText}`);
-      }
-
-      const result = await response.json();
-      console.log('✅ Respuesta del servidor:', result);
-      return result;
-      */
-
-      // Simular delay de red para desarrollo
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log("✅ Respuesta del servidor:", response);
       
-      return { success: true, message: "Pre-registro exitoso" };
+      return { success: true, message: "Pre-registro exitoso", data: response };
     } catch (error) {
       console.error("❌ Error al enviar formulario:", error);
-      throw error;
+      
+      // Extraer mensaje de error si está disponible
+      const errorMessage = error?.response?.data?.message || 
+                          error?.message || 
+                          "Hubo un error al enviar el formulario";
+      
+      throw new Error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -103,23 +79,23 @@ function LandingPage() {
       // Limpiar formulario y cerrar modal después de 3 segundos
       setTimeout(() => {
         setFormData({ 
-          nombre: "", 
-          email: "", 
-          telefono: "",
-          smartwatchBrand: "",
-          age: "",
-          gender: "",
-          cellphoneOS: "",
-          runningExperience: "",
+          firstName: "", 
+          email: "",
+          phone: "",
         });
         setFormSubmitted(false);
         closeModal();
       }, 3000);
     } catch (error) {
-      // Manejar errores (por ahora solo en consola)
+      // Manejar errores
       console.error("Error en el envío del formulario:", error);
-      // TODO: Mostrar mensaje de error al usuario
-      alert("Hubo un error al enviar el formulario. Por favor, intenta de nuevo.");
+      
+      // Mostrar mensaje de error al usuario
+      const errorMessage = error?.message || "Hubo un error al enviar el formulario. Por favor, intenta de nuevo.";
+      alert(errorMessage);
+      
+      // No cerrar el modal si hay error para que el usuario pueda intentar de nuevo
+      setIsSubmitting(false);
     }
   };
 
@@ -129,7 +105,7 @@ function LandingPage() {
 
     // Validaciones según el tipo de campo
     switch (name) {
-      case "nombre":
+      case "firstName":
         // Solo letras, espacios, acentos, ñ y guiones
         filteredValue = value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]/g, "");
         break;
@@ -139,26 +115,9 @@ function LandingPage() {
         filteredValue = value;
         break;
       
-      case "telefono":
+      case "phone":
         // Solo números, espacios, +, -, paréntesis
         filteredValue = value.replace(/[^\d\s+\-()]/g, "");
-        break;
-      
-      case "age":
-        // Solo números, limitar a máximo 2 dígitos
-        filteredValue = value.replace(/[^\d]/g, "");
-        if (filteredValue.length > 2) {
-          filteredValue = filteredValue.slice(0, 2);
-        }
-        // Validar rango solo si el valor completo está fuera del rango permitido
-        if (filteredValue !== "") {
-          const numValue = parseInt(filteredValue, 10);
-          if (numValue > 99) {
-            filteredValue = "99";
-          }
-          // Permitir escribir números menores a 18 mientras se escribe (ej: "1" para luego escribir "18")
-          // La validación completa se hace en onBlur
-        }
         break;
       
       default:

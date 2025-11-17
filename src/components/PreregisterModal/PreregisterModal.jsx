@@ -20,11 +20,11 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
         <div className="preregister-content">
           <div className="preregister-info">
             <h2 className="section-title">Únete al Pre-registro</h2>
-            <p className="section-subtitle">
+            <p className="section-subtitle preregister-subtitle-desktop">
               Sé de los primeros en probar Zona² y obtén beneficios exclusivos
             </p>
 
-            <div className="benefits-list">
+            <div className="benefits-list benefits-list-desktop">
               <div className="benefit-item">
                 <div className="benefit-icon">
                   <Award size={24} />
@@ -58,12 +58,12 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
           <div className="preregister-form-container">
             <form onSubmit={onSubmit} className="preregister-form">
               <div className="form-group">
-                <label htmlFor="nombre">Nombre completo</label>
+                <label htmlFor="firstName">Nombre</label>
                 <input
                   type="text"
-                  id="nombre"
-                  name="nombre"
-                  value={formData.nombre}
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={onChange}
                   onKeyDown={(e) => {
                     // Permitir teclas de control (Backspace, Delete, Tab, Arrow keys, etc.)
@@ -79,7 +79,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                       e.preventDefault();
                     }
                   }}
-                  placeholder="Juan Pérez"
+                  placeholder="Juan"
                   pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]+"
                   title="Solo se permiten letras, espacios y guiones"
                   required
@@ -102,12 +102,12 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
               </div>
 
               <div className="form-group">
-                <label htmlFor="telefono">Teléfono (opcional)</label>
+                <label htmlFor="phone">Teléfono</label>
                 <input
                   type="tel"
-                  id="telefono"
-                  name="telefono"
-                  value={formData.telefono}
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
                   onChange={onChange}
                   onKeyDown={(e) => {
                     // Permitir teclas de control
@@ -125,116 +125,9 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                   }}
                   placeholder="+52 999 123 4567"
                   pattern="[\d\s+\-()]+"
-                  title="Solo se permiten números, espacios, +, - y paréntesis"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="smartwatchBrand">Marca de reloj inteligente</label>
-                <select
-                  id="smartwatchBrand"
-                  name="smartwatchBrand"
-                  value={formData.smartwatchBrand}
-                  onChange={onChange}
-                  required
-                >
-                  <option value="">Selecciona una opción</option>
-                  <option value="garmin">Garmin</option>
-                  <option value="apple-watch">Apple Watch</option>
-                  <option value="samsung">Samsung</option>
-                  <option value="fitbit">Fitbit</option>
-                  <option value="polar">Polar</option>
-                  <option value="suunto">Suunto</option>
-                  <option value="other">Otra</option>
-                  <option value="none">No tengo</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="age">Edad</label>
-                <input
-                  type="number"
-                  id="age"
-                  name="age"
-                  value={formData.age}
-                  onChange={onChange}
-                  onKeyDown={(e) => {
-                    // Permitir teclas de control
-                    const allowedKeys = [
-                      "Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight",
-                      "ArrowUp", "ArrowDown", "Home", "End"
-                    ];
-                    if (allowedKeys.includes(e.key)) {
-                      return;
-                    }
-                    // Solo permitir números
-                    if (!/^\d$/.test(e.key)) {
-                      e.preventDefault();
-                    }
-                  }}
-                  onBlur={(e) => {
-                    // Validar rango al perder el foco
-                    const value = parseInt(e.target.value, 10);
-                    if (e.target.value !== "" && (value < 18 || value > 99)) {
-                      e.target.setCustomValidity("La edad debe estar entre 18 y 99 años");
-                    } else {
-                      e.target.setCustomValidity("");
-                    }
-                  }}
-                  placeholder="25"
-                  min="18"
-                  max="99"
+                  title="Ingresa un número de teléfono válido"
                   required
                 />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="gender">Género</label>
-                <select
-                  id="gender"
-                  name="gender"
-                  value={formData.gender}
-                  onChange={onChange}
-                  required
-                >
-                  <option value="">Selecciona una opción</option>
-                  <option value="male">Masculino</option>
-                  <option value="female">Femenino</option>
-                  <option value="other">Otro</option>
-                  <option value="prefer-not-to-say">Prefiero no decir</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="cellphoneOS">Sistema operativo del celular</label>
-                <select
-                  id="cellphoneOS"
-                  name="cellphoneOS"
-                  value={formData.cellphoneOS}
-                  onChange={onChange}
-                  required
-                >
-                  <option value="">Selecciona una opción</option>
-                  <option value="android">Android</option>
-                  <option value="ios">iOS</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="runningExperience">Experiencia corriendo</label>
-                <select
-                  id="runningExperience"
-                  name="runningExperience"
-                  value={formData.runningExperience}
-                  onChange={onChange}
-                  required
-                >
-                  <option value="">Selecciona una opción</option>
-                  <option value="amateur">Amateur</option>
-                  <option value="intermediate">Intermedio</option>
-                  <option value="advanced">Avanzado</option>
-                  <option value="professional">Profesional</option>
-                </select>
               </div>
 
               <button
