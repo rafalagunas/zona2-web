@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, DollarSign, Clock, Check, X } from "lucide-react";
+import { Gift, Percent, Wallet, Check, X } from "lucide-react";
 
 function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitting, onChange, onSubmit }) {
   if (!isOpen) return null;
@@ -18,38 +18,38 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
           <X size={24} />
         </button>
         <div className="preregister-content">
-          <div className="preregister-info">
-            <h2 className="section-title">Únete al Pre-registro</h2>
+          <div className="preregister-info" style={{ minWidth: 0 }}>
+            <h2 className="section-title" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>Únete al Pre-registro</h2>
             <p className="section-subtitle preregister-subtitle-desktop">
-              Sé de los primeros en probar Zona² y obtén beneficios exclusivos
+              Transforma tu motivación deportiva en reconocimiento real. Acumula puntos, canjéalos por descuentos y forma parte de una comunidad que valora cada paso.
             </p>
 
             <div className="benefits-list benefits-list-desktop">
               <div className="benefit-item">
                 <div className="benefit-icon">
-                  <Award size={24} />
+                  <Gift size={24} />
                 </div>
                 <div>
-                  <h4>Acceso anticipado</h4>
-                  <p>Prueba la app antes del lanzamiento oficial</p>
+                  <h4>10,000 puntos de bienvenida</h4>
+                  <p>Recibe puntos válidos por 90 días al registrarte. Canjéalos en carreras y establecimientos afiliados</p>
                 </div>
               </div>
               <div className="benefit-item">
                 <div className="benefit-icon">
-                  <DollarSign size={24} />
+                  <Percent size={24} />
                 </div>
                 <div>
-                  <h4>Bonus de bienvenida</h4>
-                  <p>Z2 tokens gratis al registrarte ($200 MXN)</p>
+                  <h4>Descuentos reales</h4>
+                  <p>Hasta 50% de descuento en carreras y comercios asociados. Cada punto refleja actividad real</p>
                 </div>
               </div>
               <div className="benefit-item">
                 <div className="benefit-icon">
-                  <Clock size={24} />
+                  <Wallet size={24} />
                 </div>
                 <div>
-                  <h4>Plan Premium gratis</h4>
-                  <p>3 meses de membresía premium sin costo</p>
+                  <h4>Wallet digital y niveles</h4>
+                  <p>Consulta tu saldo, historial y ahorro acumulado. Avanza de Bronce a Élite según tu constancia</p>
                 </div>
               </div>
             </div>

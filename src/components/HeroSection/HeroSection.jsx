@@ -28,10 +28,11 @@ function HeroSection({ onScrollToSection, onOpenModal }) {
           </div>
 
           <h1 className="hero-title">
-            Corre en <span className="text-gradient">Zona 2,</span>
+            Corre,     <span className="text-gradient">Conecta,</span>
             <br />
-            <span className="text-gradient">Conecta</span> con corredores,
-            <br />y <span className="text-gradient">Gana</span> puntos reales
+            y 
+            <span className="text-gradient"> Gana</span> 
+     
           </h1>
 
           <p className="hero-description">
