@@ -36,10 +36,10 @@ function LandingPage() {
     }
 
     // Mapear al schema del backend: name, login, email, phone
-    // login es el @id y usamos el email como login
+    // login es el @id y debe ser el número de teléfono
     const dataToSend = {
       name: trimmedName,           // Campo requerido en el schema
-      login: trimmedEmail,         // Campo @id requerido (usamos email como login)
+      login: trimmedPhone,         // Campo @id requerido (usamos teléfono como login)
       email: trimmedEmail,         // Campo requerido en el schema
       phone: trimmedPhone,         // Campo requerido en el schema
     };

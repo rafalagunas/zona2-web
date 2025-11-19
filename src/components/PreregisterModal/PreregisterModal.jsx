@@ -80,7 +80,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                     }
                   }}
                   placeholder="Juan"
-                  pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]+"
+                  pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s-]+"
                   title="Solo se permiten letras, espacios y guiones"
                   required
                 />
@@ -95,7 +95,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                   value={formData.email}
                   onChange={onChange}
                   placeholder="juan@ejemplo.com"
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
                   title="Ingresa un correo electrónico válido"
                   required
                 />
@@ -124,7 +124,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                     }
                   }}
                   placeholder="+52 999 123 4567"
-                  pattern="[\d\s+\-()]+"
+                  pattern="[\\d\\s+\\-()]+"
                   title="Ingresa un número de teléfono válido"
                   required
                 />

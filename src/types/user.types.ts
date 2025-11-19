@@ -76,7 +76,7 @@ export interface CreateUserDto {
 // Type for pre-registration form data (what we collect from the user)
 export interface PreregisterFormData {
   firstName: string; // Maps to 'name' in the schema
-  email: string;     // Maps to both 'email' and 'login' in the schema
-  phone: string;     // Maps to 'phone' in the schema
+  email: string;     // Maps to 'email' in the schema
+  phone: string;     // Maps to both 'phone' and 'login' in the schema (login is @id)
 }
 
