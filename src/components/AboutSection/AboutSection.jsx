@@ -36,9 +36,11 @@ function AboutSection() {
           transition={{ duration: 0.6 }}
           className="section-header"
         >
-          <h2 className="section-title">Acerca del Proyecto</h2>
-          <p className="section-subtitle">
+          <h2 className="section-title">
+    
             Transforma tu motivación deportiva en reconocimiento real
+          </h2>
+          <p className="section-subtitle">
           </p>
         </motion.div>
 
@@ -51,15 +53,17 @@ function AboutSection() {
           className="intro-text"
         >
           <p>
-            Z2 es una aplicación gratuita creada para transformar la motivación deportiva en reconocimiento real. 
-            Su estructura combina tecnología, comunidad y gamificación para convertir cada actividad física, 
-            logro y conexión social en valor digital. La plataforma promueve una economía simbólica, donde los 
-            corredores acumulan puntos por su esfuerzo y los canjean por beneficios, descuentos o reconocimiento 
+            Z2 es una aplicación gratuita creada para transformar la motivación
+            deportiva en reconocimiento real. Su estructura combina tecnología,
+            comunidad y gamificación para convertir cada actividad física, logro
+            y conexión social en valor digital. La plataforma promueve una
+            economía simbólica, donde los corredores acumulan puntos por su
+            esfuerzo y los canjean por beneficios, descuentos o reconocimiento
             dentro de la comunidad.
           </p>
         </motion.div>
 
-        {/* Runner Section */}
+        {/* Runner Section
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +147,7 @@ function AboutSection() {
         </motion.div>
 
         {/* Gamification Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -193,10 +197,10 @@ function AboutSection() {
               <strong>Cada ascenso genera una notificación celebratoria</strong> fortaleciendo tu conexión emocional con la app.
             </p>
               </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Organizers & Establishments Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -246,11 +250,10 @@ function AboutSection() {
               <strong>Z2 une a runners, organizadores y establecimientos</strong> bajo un modelo sostenible que se nutre de la interacción y el compromiso.
             </p>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
 }
 
 export default AboutSection;
-

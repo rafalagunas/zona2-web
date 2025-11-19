@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import HeroSection from "../components/HeroSection/HeroSection";
-import AboutSection from "../components/AboutSection/AboutSection";
+import FeaturesSection from "../components/FeaturesSection/FeaturesSection";
 import SponsorsSection from "../components/SponsorsSection/SponsorsSection";
+import AboutSection from "../components/AboutSection/AboutSection";
+import MethodologySection from "../components/MethodologySection/MethodologySection";
 import FAQSection from "../components/FAQSection/FAQSection";
+import ContactSection from "../components/ContactSection/ContactSection";
 import PreregisterModal from "../components/PreregisterModal/PreregisterModal";
 import Footer from "../components/Footer/Footer";
 import APIs from "../services/services/APIs";
@@ -184,11 +187,23 @@ function LandingPage() {
         onOpenModal={openModal}
       />
       
+      <FeaturesSection />
+      
       <SponsorsSection />
       
       <AboutSection />
       
+      <MethodologySection onOpenModal={openModal} />
+      
       <FAQSection />
+      
+      <ContactSection 
+        formData={formData}
+        formSubmitted={formSubmitted}
+        isSubmitting={isSubmitting}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
       
       <PreregisterModal
         isOpen={isModalOpen}

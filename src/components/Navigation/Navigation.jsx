@@ -51,7 +51,7 @@ function Navigation({ onScrollToSection, onOpenModal }) {
             alt="Zona2 Logo"
             className="logo-img"
           />
-          <span className="logo-text">Zona²</span>
+          <span className="logo-text"></span>
         </div>
         
         {/* Hamburger Button */}
