@@ -192,7 +192,7 @@ function AboutSection() {
             <p>
               <strong>Cada ascenso genera una notificación celebratoria</strong> fortaleciendo tu conexión emocional con la app.
             </p>
-          </div>
+              </div>
         </motion.div>
 
         {/* Organizers & Establishments Section */}
@@ -207,7 +207,7 @@ function AboutSection() {
             <div className="role-icon">
               <Store size={40} />
             </div>
-            <div>
+              <div>
               <h3 className="role-title">Para Organizadores y Establecimientos</h3>
               <p className="role-subtitle">Amplifica tu alcance</p>
             </div>

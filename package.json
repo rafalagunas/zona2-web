@@ -11,13 +11,17 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@react-three/drei": "9.99.0",
+    "@react-three/fiber": "8.15.16",
     "axios": "^1.13.2",
     "framer-motion": "^10.16.16",
     "lucide-react": "^0.294.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",
-    "recharts": "^2.10.3"
+    "react-tilt": "^1.0.2",
+    "recharts": "^2.10.3",
+    "three": "0.160.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
