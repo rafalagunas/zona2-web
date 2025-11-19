@@ -10,6 +10,7 @@ import ContactSection from "../components/ContactSection/ContactSection";
 import PreregisterModal from "../components/PreregisterModal/PreregisterModal";
 import Footer from "../components/Footer/Footer";
 import BackgroundAudio from "../components/BackgroundAudio/BackgroundAudio";
+import FloatingAppButtons from "../components/FloatingAppButtons/FloatingAppButtons";
 import APIs from "../services/services/APIs";
 
 function LandingPage() {
@@ -177,7 +178,8 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <BackgroundAudio />
-
+      <FloatingAppButtons />
+      
       <Navigation onScrollToSection={scrollToSection} onOpenModal={openModal} />
 
       <HeroSection

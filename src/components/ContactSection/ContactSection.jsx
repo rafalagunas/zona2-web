@@ -39,8 +39,8 @@ function ContactSection({ formData, formSubmitted, isSubmitting, onChange, onSub
                 </div>
                 <div>
                   <h4>Ubicación</h4>
-                  <p>Yucatán, México</p>
-                  <span>Disponible en toda Latinoamérica</span>
+                  <p>México</p>
+                  <span>Disponible en todo México</span>
                 </div>
               </div>
 
@@ -50,7 +50,7 @@ function ContactSection({ formData, formSubmitted, isSubmitting, onChange, onSub
                 </div>
                 <div>
                   <h4>Email</h4>
-                  <p>hola@zona2.app</p>
+                  <p>support@zona2.mx</p>
                   <span>Respuesta en menos de 24 horas</span>
                 </div>
               </div>
