@@ -1448,6 +1448,14 @@ body {
   margin-right: auto;
 }
 
+/* Ensure single column on tablets and mobile */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
 .contact-info {
   padding: 2rem 0;
 }
@@ -2985,6 +2993,7 @@ body {
 
   .contact-info {
     padding: 0;
+    text-align: left;
   }
 
   .contact-info-title {
@@ -2993,10 +3002,25 @@ body {
 
   .contact-info-description {
     font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info-items {
+    gap: 1.75rem;
+  }
+
+  .contact-info-item {
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .contact-form-wrapper {
     padding: 2rem;
+  }
+
+  .contact-form input {
+    font-size: 1rem;
+    padding: 0.875rem 1rem;
   }
 }
 
@@ -3379,18 +3403,31 @@ body {
 
   .contact-grid {
     gap: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .contact-info {
+    text-align: center;
   }
 
   .contact-info-title {
     font-size: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .contact-info-description {
     font-size: 0.9375rem;
+    margin-bottom: 2rem;
   }
 
   .contact-info-items {
     gap: 1.5rem;
+  }
+
+  .contact-info-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .contact-info-icon {
@@ -3398,12 +3435,27 @@ body {
     height: 45px;
   }
 
+  .contact-info-item h4 {
+    margin-top: 0.5rem;
+  }
+
   .contact-form-wrapper {
     padding: 1.5rem;
+    border-radius: 20px;
   }
 
   .contact-form {
     gap: 1.25rem;
+  }
+
+  .contact-form input {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+
+  .btn-submit-contact {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
   }
 
   /* FAQ Section */
@@ -3664,8 +3716,50 @@ body {
     padding: 3rem 1rem;
   }
 
+  .contact-grid {
+    gap: 2rem;
+  }
+
+  .contact-info-title {
+    font-size: 1.375rem;
+  }
+
+  .contact-info-description {
+    font-size: 0.875rem;
+  }
+
+  .contact-info-items {
+    gap: 1.25rem;
+  }
+
+  .contact-info-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-info-item h4 {
+    font-size: 1rem;
+  }
+
+  .contact-info-item p {
+    font-size: 0.9375rem;
+  }
+
+  .contact-info-item span {
+    font-size: 0.8125rem;
+  }
+
   .contact-form-wrapper {
     padding: 1.25rem;
+  }
+
+  .contact-form input {
+    padding: 0.75rem;
+  }
+
+  .btn-submit-contact {
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
   }
 }
 
