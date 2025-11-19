@@ -1,13 +1,13 @@
 import ConfigurationAPIs from '../api/configurationAPIs';
+import type { CreateUserDto, SecUser } from '../../types/user.types';
 
 const APIs = {
 
-  // YACHTS
-  createUser: async (data: any, customPath?: string) => {
-    const path = customPath || 'user/create';
-    return ConfigurationAPIs.post(path, data);
+  // Create user (pre-registration)
+  createUser: async (data: CreateUserDto, customPath?: string): Promise<SecUser> => {
+    const path = customPath || 'sec-users/create';
+    return ConfigurationAPIs.post<SecUser>(path, data);
   },
-
 
 }
 

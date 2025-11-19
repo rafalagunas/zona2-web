@@ -25,17 +25,24 @@ function LandingPage() {
 
   // Función para convertir formData a JSON y preparar para envío
   const prepareFormData = () => {
-    // Mapear los datos al formato que espera el backend
-    const dataToSend = {
-      firstName: formData.firstName.trim(),
-      email: formData.email.trim(),
-      phone: formData.phone.trim(),
-    };
+    // Mapear los datos al formato que espera el backend según el schema sec_users
+    const trimmedName = formData.firstName.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.trim();
 
     // Validar que todos los campos requeridos estén presentes
-    if (!dataToSend.firstName || !dataToSend.email || !dataToSend.phone) {
+    if (!trimmedName || !trimmedEmail || !trimmedPhone) {
       throw new Error("Por favor completa todos los campos requeridos");
     }
+
+    // Mapear al schema del backend: name, login, email, phone
+    // login es el @id y usamos el email como login
+    const dataToSend = {
+      name: trimmedName,           // Campo requerido en el schema
+      login: trimmedEmail,         // Campo @id requerido (usamos email como login)
+      email: trimmedEmail,         // Campo requerido en el schema
+      phone: trimmedPhone,         // Campo requerido en el schema
+    };
 
     return dataToSend;
   };
