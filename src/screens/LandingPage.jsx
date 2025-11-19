@@ -43,24 +43,25 @@ function LandingPage() {
   const submitFormData = async (data) => {
     try {
       setIsSubmitting(true);
-      
+
       // Log para desarrollo
       console.log("📤 Enviando datos del formulario:", data);
-      
+
       // Llamar a la API para crear el usuario
       const response = await APIs.createUser(data);
-      
+
       console.log("✅ Respuesta del servidor:", response);
-      
+
       return { success: true, message: "Pre-registro exitoso", data: response };
     } catch (error) {
       console.error("❌ Error al enviar formulario:", error);
-      
+
       // Extraer mensaje de error si está disponible
-      const errorMessage = error?.response?.data?.message || 
-                          error?.message || 
-                          "Hubo un error al enviar el formulario";
-      
+      const errorMessage =
+        error?.response?.data?.message ||
+        error?.message ||
+        "Hubo un error al enviar el formulario";
+
       throw new Error(errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -69,21 +70,21 @@ function LandingPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Preparar datos del formulario
     const dataToSend = prepareFormData();
-    
+
     try {
       // Enviar datos al endpoint
       await submitFormData(dataToSend);
-      
+
       // Marcar como enviado exitosamente
       setFormSubmitted(true);
-      
+
       // Limpiar formulario y cerrar modal después de 3 segundos
       setTimeout(() => {
-        setFormData({ 
-          firstName: "", 
+        setFormData({
+          firstName: "",
           email: "",
           phone: "",
         });
@@ -93,11 +94,13 @@ function LandingPage() {
     } catch (error) {
       // Manejar errores
       console.error("Error en el envío del formulario:", error);
-      
+
       // Mostrar mensaje de error al usuario
-      const errorMessage = error?.message || "Hubo un error al enviar el formulario. Por favor, intenta de nuevo.";
+      const errorMessage =
+        error?.message ||
+        "Hubo un error al enviar el formulario. Por favor, intenta de nuevo.";
       alert(errorMessage);
-      
+
       // No cerrar el modal si hay error para que el usuario pueda intentar de nuevo
       setIsSubmitting(false);
     }
@@ -113,17 +116,17 @@ function LandingPage() {
         // Solo letras, espacios, acentos, ñ y guiones
         filteredValue = value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]/g, "");
         break;
-      
+
       case "email":
         // El tipo email ya valida el formato, pero permitimos caracteres válidos
         filteredValue = value;
         break;
-      
+
       case "phone":
         // Solo números, espacios, +, -, paréntesis
         filteredValue = value.replace(/[^\d\s+\-()]/g, "");
         break;
-      
+
       default:
         filteredValue = value;
     }
@@ -133,11 +136,6 @@ function LandingPage() {
       [name]: filteredValue,
     });
   };
-
-  // Show modal on page load
-  useEffect(() => {
-    setIsModalOpen(true);
-  }, []);
 
   // Handle ESC key to close modal and prevent body scroll
   useEffect(() => {
@@ -179,35 +177,32 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <BackgroundAudio />
-      
-      <Navigation 
+
+      <Navigation onScrollToSection={scrollToSection} onOpenModal={openModal} />
+
+      <HeroSection
         onScrollToSection={scrollToSection}
         onOpenModal={openModal}
       />
-      
-      <HeroSection 
-        onScrollToSection={scrollToSection}
-        onOpenModal={openModal}
-      />
-      
+
       <FeaturesSection />
-      
+
       <SponsorsSection />
-      
+
       <AboutSection />
-      
+
       <MethodologySection onOpenModal={openModal} />
-      
+
       <FAQSection />
-      
-      <ContactSection 
+
+      <ContactSection
         formData={formData}
         formSubmitted={formSubmitted}
         isSubmitting={isSubmitting}
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      
+
       <PreregisterModal
         isOpen={isModalOpen}
         onClose={closeModal}
@@ -217,7 +212,7 @@ function LandingPage() {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      
+
       <Footer onOpenModal={openModal} />
     </div>
   );
