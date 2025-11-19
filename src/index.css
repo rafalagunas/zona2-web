@@ -3797,3 +3797,119 @@ body {
   }
 }
 
+/* ============================================ */
+/* Background Audio Controls */
+/* ============================================ */
+
+.audio-controls {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1500;
+}
+
+.audio-toggle-btn {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #043847, #065666);
+  border: 2px solid rgba(189, 233, 1, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-primary);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.audio-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, #065666, #043847);
+}
+
+.audio-toggle-btn:hover .audio-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-8px);
+}
+
+.audio-play-btn {
+  animation: audioPulse 2s ease-in-out infinite;
+}
+
+@keyframes audioPulse {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(189, 233, 1, 0.4);
+  }
+}
+
+.audio-tooltip {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(4, 56, 71, 0.95);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-right: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.audio-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid rgba(4, 56, 71, 0.95);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .audio-controls {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .audio-toggle-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .audio-tooltip {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .audio-controls {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .audio-toggle-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
