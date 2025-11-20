@@ -9,7 +9,7 @@ class ApiService {
   constructor(baseURL: string = 'https://zona2.mx/api/') {
     // constructor(baseURL: string = '') {
     this.axiosInstance = axios.create({
-      baseURL,
+      baseURL,  
       headers: {
         'Content-Type': 'application/json',
       },
