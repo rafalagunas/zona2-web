@@ -11,6 +11,7 @@ import PreregisterModal from "../components/PreregisterModal/PreregisterModal";
 import Footer from "../components/Footer/Footer";
 import BackgroundAudio from "../components/BackgroundAudio/BackgroundAudio";
 import FloatingAppButtons from "../components/FloatingAppButtons/FloatingAppButtons";
+import VideoSplash from "../components/VideoSplash/VideoSplash";
 import APIs from "../services/services/APIs";
 
 function LandingPage() {
@@ -184,6 +185,7 @@ function LandingPage() {
 
   return (
     <div className="landing-page">
+      <VideoSplash />
       <BackgroundAudio />
       <FloatingAppButtons />
       
