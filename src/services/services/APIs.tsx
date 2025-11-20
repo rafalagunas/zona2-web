@@ -5,7 +5,7 @@ const APIs = {
 
   // Create user (pre-registration)
   createUser: async (data: CreateUserDto, customPath?: string): Promise<SecUser> => {
-    const path = customPath || 'sec-users/create';
+    const path = customPath || 'sec-users/pre-register';
     return ConfigurationAPIs.post<SecUser>(path, data);
   },
 

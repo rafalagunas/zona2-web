@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Gift, Percent, Wallet, Check, X } from "lucide-react";
 
-function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitting, onChange, onSubmit }) {
+function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitting, successMessage, onChange, onSubmit }) {
   if (!isOpen) return null;
 
   return (
@@ -138,7 +138,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                 {formSubmitted ? (
                   <>
                     <Check size={20} />
-                    ¡Registrado exitosamente!
+                    {successMessage || "¡Registrado exitosamente!"}
                   </>
                 ) : isSubmitting ? (
                   "Enviando..."

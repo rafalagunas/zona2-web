@@ -23,6 +23,7 @@ function LandingPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   // Función para convertir formData a JSON y preparar para envío
   const prepareFormData = () => {
@@ -61,6 +62,14 @@ function LandingPage() {
 
       console.log("✅ Respuesta del servidor:", response);
 
+      // Verificar si la respuesta tiene status 'warning' o 'success'
+      if (response?.status === 'warning' || response?.status === 'success') {
+        // Mostrar el mensaje de la respuesta
+        const message = response?.message || "Usuario creado exitosamente";
+        setSuccessMessage(message);
+        return { success: true, message, data: response };
+      }
+
       return { success: true, message: "Pre-registro exitoso", data: response };
     } catch (error) {
       console.error("❌ Error al enviar formulario:", error);
@@ -98,6 +107,7 @@ function LandingPage() {
           phone: "",
         });
         setFormSubmitted(false);
+        setSuccessMessage("");
         closeModal();
       }, 3000);
     } catch (error) {
@@ -220,6 +230,7 @@ function LandingPage() {
         formData={formData}
         formSubmitted={formSubmitted}
         isSubmitting={isSubmitting}
+        successMessage={successMessage}
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
