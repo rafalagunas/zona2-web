@@ -10,7 +10,7 @@ function VideoSplash() {
     // Hide video after 3 seconds
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 3000);
+    }, 6000);
 
     // Try to play video
     if (videoRef.current) {
