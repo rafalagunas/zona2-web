@@ -104,7 +104,6 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
                     }
                   }}
                   placeholder="Juan Pérez"
-                  pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s-]+"
                   title="Solo se permiten letras, espacios y guiones"
                   required
                 />
@@ -131,7 +130,6 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
                   value={formData.email}
                   onChange={onChange}
                   placeholder="juan@ejemplo.com"
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
                   title="Ingresa un correo electrónico válido"
                   required
                   style={errorMessage ? { borderColor: '#FF6B35' } : {}}
@@ -166,7 +164,6 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
                     }
                   }}
                   placeholder="+52 999 123 4567"
-                  pattern="[\\d\\s+\\-()]+"
                   title="Ingresa un número de teléfono válido"
                   required
                 />
