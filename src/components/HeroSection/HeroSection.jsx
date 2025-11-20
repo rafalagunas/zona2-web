@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring, animate } from "framer-motion";
 import { Play } from "lucide-react";
-import AuroraBackground from "./AuroraBackground";
+import runnersVideo from "../../assets/runners.mp4";
 
 function AnimatedNumber({ value, formatter, isActive, className = "" }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -99,8 +99,16 @@ function HeroSection({ onScrollToSection, onOpenModal }) {
 
   return (
     <section id="inicio" className="hero-section" ref={heroRef}>
-      <AuroraBackground />
-      <div className="hero-overlay hero-overlay-aurora"></div>
+      <video
+        className="hero-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src={runnersVideo} type="video/mp4" />
+      </video>
+      <div className="hero-overlay"></div>
       <div className="hero-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
