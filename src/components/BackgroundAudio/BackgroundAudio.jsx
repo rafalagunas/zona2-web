@@ -41,6 +41,11 @@ function BackgroundAudio() {
   }, [playCount]);
 
   useEffect(() => {
+    // Only try to play if we haven't exceeded the limit
+    if (playCount >= 2) {
+      return; // Don't set up listeners if we've already played 2 times
+    }
+
     // Try to autoplay when component mounts
     const playAudio = async () => {
       try {
@@ -57,42 +62,25 @@ function BackgroundAudio() {
       }
     };
 
-    // Only try to play if we haven't exceeded the limit
-    if (playCount < 2) {
-      // Try immediate play
-      playAudio();
+    // Try immediate play
+    playAudio();
 
-      // Retry after a small delay
-      const timer = setTimeout(playAudio, 500);
+    // Retry after a small delay
+    const timer = setTimeout(playAudio, 500);
 
-      // Setup listeners for first user interaction
-      const handleInteraction = async () => {
-        if (!hasInteracted && audioRef.current && playCount < 2) {
-          try {
-            audioRef.current.volume = 0.4;
-            await audioRef.current.play();
-            setIsPlaying(true);
-            setHasInteracted(true);
-          } catch (error) {
-            console.log("Still unable to play audio");
-          }
+    // Setup listeners for first user interaction
+    const handleInteraction = async () => {
+      if (!hasInteracted && audioRef.current && playCount < 2) {
+        try {
+          audioRef.current.volume = 0.4;
+          await audioRef.current.play();
+          setIsPlaying(true);
+          setHasInteracted(true);
+        } catch (error) {
+          console.log("Still unable to play audio");
         }
-      };
-
-      // Listen for various user interactions
-      document.addEventListener('click', handleInteraction, { once: true });
-      document.addEventListener('scroll', handleInteraction, { once: true });
-      document.addEventListener('touchstart', handleInteraction, { once: true });
-      document.addEventListener('keydown', handleInteraction, { once: true });
-
-      return () => {
-        clearTimeout(timer);
-        document.removeEventListener('click', handleInteraction);
-        document.removeEventListener('scroll', handleInteraction);
-        document.removeEventListener('touchstart', handleInteraction);
-        document.removeEventListener('keydown', handleInteraction);
-      };
-    }
+      }
+    };
 
     // Listen for various user interactions
     document.addEventListener('click', handleInteraction, { once: true });
