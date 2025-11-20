@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import { Gift, Percent, Wallet, Check, X } from "lucide-react";
 
-function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitting, successMessage, onChange, onSubmit }) {
+function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitting, successMessage, errorMessage, onChange, onSubmit }) {
   if (!isOpen) return null;
+
+  // Debug: verificar que el mensaje de error se reciba
+  if (errorMessage) {
+    console.log("🔴 ErrorMessage recibido en PreregisterModal:", errorMessage);
+  }
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -87,7 +92,19 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Correo electrónico</label>
+                <label htmlFor="email" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'nowrap' }}>
+                  <span>Correo electrónico</span>
+                  {errorMessage && (
+                    <span style={{ 
+                      color: '#FF6B35', 
+                      fontSize: '0.875rem',
+                      fontWeight: '500',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      ({errorMessage})
+                    </span>
+                  )}
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -98,6 +115,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
                   title="Ingresa un correo electrónico válido"
                   required
+                  style={errorMessage ? { borderColor: '#FF6B35' } : {}}
                 />
               </div>
 

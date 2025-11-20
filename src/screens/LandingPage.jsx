@@ -24,7 +24,7 @@ function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [warningModal, setWarningModal] = useState({ isOpen: false, message: "" });
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Función para convertir formData a JSON y preparar para envío
   const prepareFormData = () => {
@@ -104,12 +104,12 @@ function LandingPage() {
       // Enviar datos al endpoint
       const result = await submitFormData(dataToSend);
 
-      // Si el status es 'warning', mostrar modal de advertencia y NO cerrar el modal de pre-registro
+      // Si el status es 'warning', mostrar mensaje de error en el formulario y NO cerrar el modal de pre-registro
       if (result?.status === 'warning') {
-        setWarningModal({
-          isOpen: true,
-          message: result.message || "El usuario ya existe"
-        });
+        console.log("⚠️ Warning recibido:", result);
+        const warningMessage = result.message || "El correo o teléfono ya existe";
+        console.log("📝 Estableciendo mensaje de error:", warningMessage);
+        setErrorMessage(warningMessage);
         setIsSubmitting(false);
         return; // No cerrar el modal de pre-registro
       }
@@ -160,11 +160,19 @@ function LandingPage() {
       case "email":
         // El tipo email ya valida el formato, pero permitimos caracteres válidos
         filteredValue = value;
+        // Limpiar mensaje de error cuando el usuario cambie el email
+        if (errorMessage) {
+          setErrorMessage("");
+        }
         break;
 
       case "phone":
         // Solo números, espacios, +, -, paréntesis
         filteredValue = value.replace(/[^\d\s+\-()]/g, "");
+        // Limpiar mensaje de error cuando el usuario cambie el teléfono
+        if (errorMessage) {
+          setErrorMessage("");
+        }
         break;
 
       default:
@@ -241,6 +249,8 @@ function LandingPage() {
         formData={formData}
         formSubmitted={formSubmitted}
         isSubmitting={isSubmitting}
+        successMessage={successMessage}
+        errorMessage={errorMessage}
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
@@ -252,71 +262,10 @@ function LandingPage() {
         formSubmitted={formSubmitted}
         isSubmitting={isSubmitting}
         successMessage={successMessage}
+        errorMessage={errorMessage}
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-
-      {/* Modal minimalista de advertencia para status warning */}
-      {warningModal.isOpen && (
-        <div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 3000,
-            padding: '1rem'
-          }}
-          onClick={() => setWarningModal({ isOpen: false, message: "" })}
-        >
-          <div 
-            style={{
-              background: '#043847',
-              borderRadius: '12px',
-              padding: '1.5rem',
-              maxWidth: '350px',
-              width: '100%',
-              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)',
-              textAlign: 'center'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p style={{ 
-              marginBottom: '1.5rem', 
-              fontSize: '0.95rem', 
-              color: '#FF6B35',
-              fontWeight: '500',
-              lineHeight: '1.5'
-            }}>
-              {warningModal.message}
-            </p>
-            <button
-              onClick={() => setWarningModal({ isOpen: false, message: "" })}
-              style={{
-                width: '100%',
-                padding: '0.75rem 1.5rem',
-                background: '#bde901',
-                color: '#043847',
-                border: 'none',
-                borderRadius: '8px',
-                fontSize: '1rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.3s'
-              }}
-              onMouseOver={(e) => e.target.style.background = '#a5cf01'}
-              onMouseOut={(e) => e.target.style.background = '#bde901'}
-            >
-              Cerrar
-            </button>
-          </div>
-        </div>
-      )}
 
       <Footer onOpenModal={openModal} />
     </div>

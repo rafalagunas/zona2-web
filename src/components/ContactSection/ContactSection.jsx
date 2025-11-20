@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Check } from "lucide-react";
 
-function ContactSection({ formData, formSubmitted, isSubmitting, onChange, onSubmit }) {
+function ContactSection({ formData, formSubmitted, isSubmitting, successMessage, errorMessage, onChange, onSubmit }) {
   return (
     <section id="contacto" className="contact-section">
       <div className="section-container">
@@ -104,14 +104,26 @@ function ContactSection({ formData, formSubmitted, isSubmitting, onChange, onSub
                     }
                   }}
                   placeholder="Juan Pérez"
-                  pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]+"
+                  pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s-]+"
                   title="Solo se permiten letras, espacios y guiones"
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Correo electrónico *</label>
+                <label htmlFor="email" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'nowrap' }}>
+                  <span>Correo electrónico *</span>
+                  {errorMessage && (
+                    <span style={{ 
+                      color: '#FF6B35', 
+                      fontSize: '0.875rem',
+                      fontWeight: '500',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      ({errorMessage})
+                    </span>
+                  )}
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -119,9 +131,10 @@ function ContactSection({ formData, formSubmitted, isSubmitting, onChange, onSub
                   value={formData.email}
                   onChange={onChange}
                   placeholder="juan@ejemplo.com"
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
                   title="Ingresa un correo electrónico válido"
                   required
+                  style={errorMessage ? { borderColor: '#FF6B35' } : {}}
                 />
               </div>
 
@@ -153,7 +166,7 @@ function ContactSection({ formData, formSubmitted, isSubmitting, onChange, onSub
                     }
                   }}
                   placeholder="+52 999 123 4567"
-                  pattern="[\d\s+\-()]+"
+                  pattern="[\\d\\s+\\-()]+"
                   title="Ingresa un número de teléfono válido"
                   required
                 />
@@ -167,7 +180,7 @@ function ContactSection({ formData, formSubmitted, isSubmitting, onChange, onSub
                 {formSubmitted ? (
                   <>
                     <Check size={20} />
-                    ¡Registrado exitosamente!
+                    {successMessage || "¡Registrado exitosamente!"}
                   </>
                 ) : isSubmitting ? (
                   "Enviando..."
