@@ -3811,14 +3811,14 @@ body {
   position: relative;
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #043847, #065666);
+  background: #bde901;
   border: 2px solid rgba(189, 233, 1, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-primary);
+  color: var(--color-bg);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
@@ -3826,9 +3826,9 @@ body {
 
 .audio-toggle-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-  border-color: var(--color-primary);
-  background: linear-gradient(135deg, #065666, #043847);
+  box-shadow: 0 12px 32px rgba(189, 233, 1, 0.4);
+  border-color: #bde901;
+  background: #a5d001;
 }
 
 .audio-toggle-btn:hover .audio-tooltip {
@@ -3843,10 +3843,10 @@ body {
 
 @keyframes audioPulse {
   0%, 100% {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 24px rgba(189, 233, 1, 0.3);
   }
   50% {
-    box-shadow: 0 8px 32px rgba(189, 233, 1, 0.4);
+    box-shadow: 0 8px 32px rgba(189, 233, 1, 0.5);
   }
 }
 
@@ -3931,14 +3931,14 @@ body {
   position: relative;
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #043847, #065666);
+  background: #bde901;
   border: 2px solid rgba(189, 233, 1, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-primary);
+  color: var(--color-bg);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
@@ -3946,9 +3946,9 @@ body {
 
 .floating-app-toggle:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-  border-color: var(--color-primary);
-  background: linear-gradient(135deg, #065666, #043847);
+  box-shadow: 0 12px 32px rgba(189, 233, 1, 0.4);
+  border-color: #bde901;
+  background: #a5d001;
 }
 
 .floating-app-toggle:hover .floating-app-tooltip {
