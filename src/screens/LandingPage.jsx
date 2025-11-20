@@ -24,6 +24,7 @@ function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [warningModal, setWarningModal] = useState({ isOpen: false, message: "" });
 
   // Función para convertir formData a JSON y preparar para envío
   const prepareFormData = () => {
@@ -66,17 +67,24 @@ function LandingPage() {
       if (response?.status === 'warning' || response?.status === 'success') {
         // Mostrar el mensaje de la respuesta
         const message = response?.message || "Usuario creado exitosamente";
-        setSuccessMessage(message);
-        return { success: true, message, data: response };
+        return { success: true, message, status: response.status, data: response };
       }
 
-      return { success: true, message: "Pre-registro exitoso", data: response };
+      return { success: true, message: "Pre-registro exitoso", status: 'success', data: response };
     } catch (error) {
       console.error("❌ Error al enviar formulario:", error);
 
+      // Verificar si el error tiene status 'warning' o 'success' en la respuesta
+      const errorResponse = error?.response?.data;
+      if (errorResponse?.status === 'warning' || errorResponse?.status === 'success') {
+        // Si el status es warning o success, tratarlo como éxito y mostrar el mensaje
+        const message = errorResponse?.message || "Usuario creado exitosamente";
+        return { success: true, message, status: errorResponse.status, data: errorResponse };
+      }
+
       // Extraer mensaje de error si está disponible
       const errorMessage =
-        error?.response?.data?.message ||
+        errorResponse?.message ||
         error?.message ||
         "Hubo un error al enviar el formulario";
 
@@ -94,22 +102,35 @@ function LandingPage() {
 
     try {
       // Enviar datos al endpoint
-      await submitFormData(dataToSend);
+      const result = await submitFormData(dataToSend);
 
-      // Marcar como enviado exitosamente
-      setFormSubmitted(true);
-
-      // Limpiar formulario y cerrar modal después de 3 segundos
-      setTimeout(() => {
-        setFormData({
-          firstName: "",
-          email: "",
-          phone: "",
+      // Si el status es 'warning', mostrar modal de advertencia y NO cerrar el modal de pre-registro
+      if (result?.status === 'warning') {
+        setWarningModal({
+          isOpen: true,
+          message: result.message || "El usuario ya existe"
         });
-        setFormSubmitted(false);
-        setSuccessMessage("");
-        closeModal();
-      }, 3000);
+        setIsSubmitting(false);
+        return; // No cerrar el modal de pre-registro
+      }
+
+      // Si el status es 'success', mostrar mensaje de éxito y cerrar después de 3 segundos
+      if (result?.status === 'success') {
+        setSuccessMessage(result.message || "Usuario creado exitosamente");
+        setFormSubmitted(true);
+
+        // Limpiar formulario y cerrar modal después de 3 segundos
+        setTimeout(() => {
+          setFormData({
+            firstName: "",
+            email: "",
+            phone: "",
+          });
+          setFormSubmitted(false);
+          setSuccessMessage("");
+          closeModal();
+        }, 3000);
+      }
     } catch (error) {
       // Manejar errores
       console.error("Error en el envío del formulario:", error);
@@ -234,6 +255,68 @@ function LandingPage() {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
+
+      {/* Modal minimalista de advertencia para status warning */}
+      {warningModal.isOpen && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 3000,
+            padding: '1rem'
+          }}
+          onClick={() => setWarningModal({ isOpen: false, message: "" })}
+        >
+          <div 
+            style={{
+              background: '#043847',
+              borderRadius: '12px',
+              padding: '1.5rem',
+              maxWidth: '350px',
+              width: '100%',
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)',
+              textAlign: 'center'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p style={{ 
+              marginBottom: '1.5rem', 
+              fontSize: '0.95rem', 
+              color: '#FF6B35',
+              fontWeight: '500',
+              lineHeight: '1.5'
+            }}>
+              {warningModal.message}
+            </p>
+            <button
+              onClick={() => setWarningModal({ isOpen: false, message: "" })}
+              style={{
+                width: '100%',
+                padding: '0.75rem 1.5rem',
+                background: '#bde901',
+                color: '#043847',
+                border: 'none',
+                borderRadius: '8px',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s'
+              }}
+              onMouseOver={(e) => e.target.style.background = '#a5cf01'}
+              onMouseOut={(e) => e.target.style.background = '#bde901'}
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
 
       <Footer onOpenModal={openModal} />
     </div>
