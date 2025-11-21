@@ -32,10 +32,11 @@ const APIs = {
 
   /// Sec Users APIs
 
-  createSecUser: async (data: any): Promise<any> => {
+  createUser: async (data: any): Promise<any> => {
     const path = 'sec-users/pre-registration';
     return ConfigurationAPIs.post<any>(path, data);
   },
+
 
   getSecUser: async (): Promise<any> => {
     const path = 'sec-users/me';
