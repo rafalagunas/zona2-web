@@ -8,6 +8,7 @@ Una propuesta visual de diseño de aplicación móvil (UI/UX) para Zona2, la pla
 
 ## 🎯 Características
 
+
 - **Dashboard Principal**: Visualización de frecuencia cardíaca por zonas, estadísticas diarias y progreso mensual
 - **Seguimiento en Vivo**: Monitoreo en tiempo real durante carreras con métricas y mapa
 - **Comunidad**: Feed social, retos activos y clasificaciones entre runners
