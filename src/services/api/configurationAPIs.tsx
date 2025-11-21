@@ -18,7 +18,8 @@ class ApiService {
     // Add request interceptor to include token
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        const token = localStorage.getItem('tokenKana');
+        // Obtener el token de zona2
+        const token = localStorage.getItem('zona2Token');
         if (token) {
           config.headers.Authorization = `Bearer ${token}`;
         }
@@ -36,8 +37,8 @@ class ApiService {
         // TEMPORARILY DISABLED - Don't clear localStorage on 401 errors
         // if (error.response?.status === 401) {
         //   // Token expired or invalid, clear storage and redirect to login
-        //   localStorage.removeItem('tokenKana');
-        //   localStorage.removeItem('userKana');
+        //   localStorage.removeItem('zona2Token');
+        //   localStorage.removeItem('zona2UserLogin');
           
         //   // Only redirect if not already on login page
         //   if (window.location.pathname !== '/login') {

@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import "./Navigation.css";
 
 function Navigation({ onScrollToSection, onOpenModal }) {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -54,15 +57,25 @@ function Navigation({ onScrollToSection, onOpenModal }) {
           <span className="logo-text"></span>
         </div>
         
-        {/* Hamburger Button */}
-        <button
-          className="nav-hamburger"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: Contenedor para botones de login y hamburguesa */}
+        <div className="nav-mobile-buttons">
+          <button
+            className="nav-login-mobile"
+            onClick={() => navigate("/login")}
+          >
+            Iniciar sesión
+          </button>
+          
+          {/* Hamburger Button */}
+          <button
+            className="nav-hamburger"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
@@ -86,6 +99,12 @@ function Navigation({ onScrollToSection, onOpenModal }) {
             className="nav-link"
           >
             Acerca del Proyecto
+          </button>
+          <button
+            onClick={() => handleNavClick(() => navigate("/login"))}
+            className="nav-link nav-link-login-desktop"
+          >
+            Iniciar sesión
           </button>
           <button
             onClick={() => handleNavClick(onOpenModal)}
