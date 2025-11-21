@@ -1,0 +1,283 @@
+/* ============================================ */
+/* Configurations Page */
+/* ============================================ */
+
+.configurations-page {
+  min-height: 100vh;
+  padding: 1.5rem;
+  padding-bottom: 100px; /* Space for bottom nav */
+  background: linear-gradient(180deg, #043847 0%, #0a1f2a 100%);
+  color: #ffffff;
+}
+
+/* ============================================ */
+/* Profile Card */
+/* ============================================ */
+
+.config-profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(189, 233, 1, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.config-avatar {
+  flex-shrink: 0;
+}
+
+.config-avatar-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(189, 233, 1, 0.1);
+  border: 2px solid #bde901;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #bde901;
+}
+
+.config-profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.config-user-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.config-user-email {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.5rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.config-premium-badge {
+  display: inline-block;
+  background: rgba(189, 233, 1, 0.15);
+  border: 1px solid rgba(189, 233, 1, 0.3);
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #bde901;
+}
+
+/* ============================================ */
+/* Settings Sections */
+/* ============================================ */
+
+.config-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.config-section-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(189, 233, 1, 0.2);
+  border-radius: 16px;
+  padding: 0;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.config-setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.config-setting-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.config-setting-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.config-setting-icon {
+  flex-shrink: 0;
+}
+
+.config-setting-icon.appearance-icon {
+  color: #bde901;
+}
+
+.config-setting-icon.account-icon {
+  color: #60a5fa;
+}
+
+.config-setting-icon.security-icon {
+  color: #bde901;
+}
+
+.config-setting-icon.preferences-icon {
+  color: #ff6b35;
+}
+
+.config-setting-icon.support-icon {
+  color: #ff6b35;
+}
+
+.config-setting-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.config-setting-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.config-setting-subtitle {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.config-arrow-icon {
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.config-setting-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 1.25rem;
+}
+
+/* ============================================ */
+/* Toggle Switch */
+/* ============================================ */
+
+.config-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.config-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.config-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+  border-radius: 28px;
+}
+
+.config-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.config-toggle input:checked + .config-toggle-slider {
+  background-color: #bde901;
+}
+
+.config-toggle input:checked + .config-toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.config-toggle input:focus + .config-toggle-slider {
+  box-shadow: 0 0 1px #bde901;
+}
+
+/* ============================================ */
+/* Responsive */
+/* ============================================ */
+
+@media (max-width: 480px) {
+  .configurations-page {
+    padding: 1rem;
+    padding-bottom: 100px;
+  }
+
+  .config-profile-card {
+    padding: 1.25rem;
+  }
+
+  .config-avatar-circle {
+    width: 56px;
+    height: 56px;
+    font-size: 1.25rem;
+  }
+
+  .config-user-name {
+    font-size: 1rem;
+  }
+
+  .config-user-email {
+    font-size: 0.8125rem;
+  }
+
+  .config-premium-badge {
+    font-size: 0.6875rem;
+    padding: 0.2rem 0.625rem;
+  }
+
+  .config-setting-item {
+    padding: 0.875rem 1rem;
+  }
+
+  .config-setting-title {
+    font-size: 0.875rem;
+  }
+
+  .config-setting-subtitle {
+    font-size: 0.75rem;
+  }
+}
+

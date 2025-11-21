@@ -1,0 +1,404 @@
+/* ============================================ */
+/* Root Page / Dashboard */
+/* ============================================ */
+
+.root-page {
+  min-height: 100vh;
+  background: #043847;
+  color: #ffffff;
+  padding-bottom: 80px;
+ 
+}
+
+/* Header */
+.root-header {
+  padding: 1.5rem 1.25rem 1rem;
+  background: linear-gradient(180deg, rgba(4, 56, 71, 0.95) 0%, rgba(4, 56, 71, 0) 100%);
+}
+
+.greeting-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.greeting {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.user-name {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #bde901;
+  margin-top: 0.25rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #bde901;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Main Content */
+.root-content {
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Card Styles */
+.card {
+  background: rgba(17, 21, 28, 0.6);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Heart Rate Card */
+.heart-rate-card {
+  margin-bottom: 0.5rem;
+}
+
+.heart-rate-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.bpm-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.bpm-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #bde901;
+  line-height: 1;
+}
+
+.bpm-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+.zone-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.zone-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.zone-value {
+  background: #bde901;
+  color: #043847;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.heart-rate-chart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  height: 200px;
+}
+
+.chart-center-text {
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+
+.chart-percentage {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.chart-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+.zones-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.zone-item {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+}
+
+.zone-item.active {
+  background: #bde901;
+  color: #043847;
+}
+
+/* Activity Cards */
+.activity-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.activity-card {
+  background: rgba(17, 21, 28, 0.6);
+  border-radius: 16px;
+  padding: 1.25rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+.activity-icon {
+  margin-bottom: 0.25rem;
+}
+
+.steps-icon {
+  color: #3b82f6;
+}
+
+.distance-icon {
+  color: #4ade80;
+}
+
+.calories-icon {
+  color: #FF6B35;
+}
+
+.activity-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.activity-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.activity-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Start Race Button */
+.start-race-button {
+  width: 100%;
+  background: #bde901;
+  color: #043847;
+  border: none;
+  border-radius: 16px;
+  padding: 1.25rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(189, 233, 1, 0.4);
+}
+
+.start-race-button .play-icon {
+  fill: #043847;
+  color: #043847;
+}
+
+.start-race-button:hover {
+  background: #d4ff33;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(189, 233, 1, 0.4);
+}
+
+.start-race-button:active {
+  transform: translateY(0);
+}
+
+.play-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Progress Card */
+.progress-card {
+  margin-bottom: 1rem;
+}
+
+.progress-item {
+  margin-bottom: 1.5rem;
+}
+
+.progress-item:last-child {
+  margin-bottom: 0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.progress-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #bde901 0%, #d4ff33 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(17, 21, 28, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.75rem 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+  border-radius: 12px;
+}
+
+.nav-item.active .nav-icon {
+  color: #bde901;
+}
+
+.nav-item.active .nav-label {
+  color: #bde901;
+}
+
+.nav-icon {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item:hover .nav-label {
+  color: rgba(189, 233, 1, 0.7);
+}
+
+/* ============================================ */
+/* Responsive Design */
+/* ============================================ */
+
+@media (max-width: 480px) {
+
+
+  .user-name {
+    font-size: 1.75rem;
+  }
+
+  .bpm-value {
+    font-size: 2.5rem;
+  }
+
+  .activity-cards {
+    gap: 0.75rem;
+  }
+
+  .activity-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .activity-value {
+    font-size: 1.125rem;
+  }
+}
+
