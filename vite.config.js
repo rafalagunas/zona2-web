@@ -7,6 +7,18 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true
+  },
+  resolve: {
+    dedupe: ['react', 'react-dom', 'react-router-dom']
+  },
+  optimizeDeps: {
+    include: ['react-router-dom']
+  },
+  build: {
+    commonjsOptions: {
+      include: [/react-router-dom/, /node_modules/],
+      transformMixedEsModules: true
+    }
   }
 })
 
