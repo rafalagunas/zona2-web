@@ -6,7 +6,7 @@ class ApiService {
   private axiosInstance: AxiosInstance;
 
   // constructor(baseURL: string = '') {
-  constructor(baseURL: string = 'http://localhost:4000/api/') {
+  constructor(baseURL: string = 'https//zona2.mx/api/') {
     // constructor(baseURL: string = '') {
     this.axiosInstance = axios.create({
       baseURL,  
