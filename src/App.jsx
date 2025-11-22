@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LandingPage from './screens/LandingPage'
+import OrganizersLanding from './screens/OrganizersLanding'
 import Login from './pages/private/login/Login'
 import VerifyOTP from './pages/private/login/verify-otp/VerifyOTP'
 import ForgetPassword from './pages/public/forget-password/ForgetPassword'
@@ -14,6 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage  />} />
+        <Route path="/organizadores" element={<OrganizersLanding />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify-otp" element={<VerifyOTP />} />
         <Route path="/forget-password" element={<ForgetPassword />} />

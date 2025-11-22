@@ -33,7 +33,7 @@ const APIs = {
   /// Sec Users APIs
 
   createUser: async (data: any): Promise<any> => {
-    const path = 'sec-users/pre-registration';
+    const path = 'sec-users/pre-register';
     return ConfigurationAPIs.post<any>(path, data);
   },
 
