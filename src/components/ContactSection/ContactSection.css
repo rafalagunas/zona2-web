@@ -1,0 +1,38 @@
+/* ============================================ */
+/* Contact Section */
+/* ============================================ */
+
+.contact-section .contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-section .contact-form-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-bg);
+}
+
+.contact-section .contact-form-input {
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-section .contact-form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(189, 233, 1, 0.1);
+}
+
+.contact-section .contact-form-disclaimer {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+

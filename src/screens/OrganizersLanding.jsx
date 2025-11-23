@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Building2, Mail, Phone, User } from "lucide-react";
-import Navigation from "../components/Navigation/Navigation";
+import Navigation from "../components/Headers/Navigation";
 import Footer from "../components/Footer/Footer";
 import APIs from "../services/services/APIs";
 import "./OrganizersLanding.css";
@@ -191,8 +191,8 @@ function OrganizersLanding() {
           </p>
 
           <form className="organizers-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name" className="form-label">
+            <div className="organizers-form-group">
+              <label htmlFor="name" className="organizers-form-label">
                 <User size={18} />
                 Nombre completo *
               </label>
@@ -200,7 +200,7 @@ function OrganizersLanding() {
                 type="text"
                 id="name"
                 name="name"
-                className={`form-input ${errorMessage ? "input-error" : ""}`}
+                className={`organizers-form-input ${errorMessage ? "organizers-input-error" : ""}`}
                 placeholder="Juan Pérez"
                 value={formData.name}
                 onChange={handleChange}
@@ -208,8 +208,8 @@ function OrganizersLanding() {
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="email" className="form-label">
+            <div className="organizers-form-group">
+              <label htmlFor="email" className="organizers-form-label">
                 <Mail size={18} />
                 Correo electrónico *
               </label>
@@ -217,7 +217,7 @@ function OrganizersLanding() {
                 type="email"
                 id="email"
                 name="email"
-                className={`form-input ${errorMessage ? "input-error" : ""}`}
+                className={`organizers-form-input ${errorMessage ? "organizers-input-error" : ""}`}
                 placeholder="correo@ejemplo.com"
                 value={formData.email}
                 onChange={handleChange}
@@ -225,8 +225,8 @@ function OrganizersLanding() {
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="phone" className="form-label">
+            <div className="organizers-form-group">
+              <label htmlFor="phone" className="organizers-form-label">
                 <Phone size={18} />
                 Teléfono *
               </label>
@@ -234,7 +234,7 @@ function OrganizersLanding() {
                 type="tel"
                 id="phone"
                 name="phone"
-                className={`form-input ${errorMessage ? "input-error" : ""}`}
+                className={`organizers-form-input ${errorMessage ? "organizers-input-error" : ""}`}
                 placeholder="+52 999 123 4567"
                 value={formData.phone}
                 onChange={handleChange}
@@ -242,8 +242,8 @@ function OrganizersLanding() {
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="establishment" className="form-label">
+            <div className="organizers-form-group">
+              <label htmlFor="establishment" className="organizers-form-label">
                 <Building2 size={18} />
                 Nombre del establecimiento / organización *
               </label>
@@ -251,7 +251,7 @@ function OrganizersLanding() {
                 type="text"
                 id="establishment"
                 name="establishment"
-                className={`form-input ${errorMessage ? "input-error" : ""}`}
+                className={`organizers-form-input ${errorMessage ? "organizers-input-error" : ""}`}
                 placeholder="Mi Empresa S.A. de C.V."
                 value={formData.establishment}
                 onChange={handleChange}
@@ -260,13 +260,13 @@ function OrganizersLanding() {
             </div>
 
             {errorMessage && (
-              <div className="form-error-message">
+              <div className="organizers-form-error-message">
                 {errorMessage}
               </div>
             )}
 
             {successMessage && (
-              <div className="form-success-message">
+              <div className="organizers-form-success-message">
                 {successMessage}
               </div>
             )}

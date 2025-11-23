@@ -111,13 +111,13 @@
   gap: 1.5rem;
 }
 
-.form-group {
+.organizers-landing .organizers-form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.form-label {
+.organizers-landing .organizers-form-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -126,7 +126,7 @@
   color: var(--color-white);
 }
 
-.form-input {
+.organizers-landing .organizers-form-input {
   width: 100%;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.1);
@@ -138,22 +138,22 @@
   backdrop-filter: blur(10px);
 }
 
-.form-input::placeholder {
+.organizers-landing .organizers-form-input::placeholder {
   color: rgba(255, 255, 255, 0.4);
 }
 
-.form-input:focus {
+.organizers-landing .organizers-form-input:focus {
   outline: none;
   border-color: var(--color-primary);
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 0 3px rgba(189, 233, 1, 0.1);
 }
 
-.form-input.input-error {
+.organizers-landing .organizers-form-input.organizers-input-error {
   border-color: #ff6b35;
 }
 
-.form-error-message {
+.organizers-landing .organizers-form-error-message {
   color: #ff6b35;
   font-size: 0.875rem;
   padding: 0.75rem;
@@ -163,7 +163,7 @@
   text-align: center;
 }
 
-.form-success-message {
+.organizers-landing .organizers-form-success-message {
   color: var(--color-primary);
   font-size: 0.875rem;
   padding: 0.75rem;

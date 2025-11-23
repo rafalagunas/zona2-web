@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Navigation from "../components/Navigation/Navigation";
+import Navigation from "../components/Headers/Navigation";
 import HeroSection from "../components/HeroSection/HeroSection";
 import FeaturesSection from "../components/FeaturesSection/FeaturesSection";
 import SponsorsSection from "../components/SponsorsSection/SponsorsSection";

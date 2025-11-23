@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Check } from "lucide-react";
+import "./ContactSection.css";
 
 function ContactSection({ formData, formSubmitted, isSubmitting, successMessage, errorMessage, onChange, onSubmit }) {
   return (
@@ -76,12 +77,13 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
             className="contact-form-wrapper"
           >
             <form onSubmit={onSubmit} className="contact-form">
-              <div className="form-group">
-                <label htmlFor="firstName">Nombre completo *</label>
+              <div className="contact-form-group">
+                <label htmlFor="firstName" className="contact-form-label">Nombre completo *</label>
                 <input
                   type="text"
                   id="firstName"
                   name="firstName"
+                  className="contact-form-input"
                   value={formData.firstName}
                   onChange={onChange}
                   onKeyDown={(e) => {
@@ -109,8 +111,8 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="email" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'nowrap' }}>
+              <div className="contact-form-group">
+                <label htmlFor="email" className="contact-form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'nowrap' }}>
                   <span>Correo electrónico *</span>
                   {errorMessage && (
                     <span style={{ 
@@ -127,6 +129,7 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
                   type="email"
                   id="email"
                   name="email"
+                  className="contact-form-input"
                   value={formData.email}
                   onChange={onChange}
                   placeholder="juan@ejemplo.com"
@@ -136,12 +139,13 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="phone">Teléfono *</label>
+              <div className="contact-form-group">
+                <label htmlFor="phone" className="contact-form-label">Teléfono *</label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
+                  className="contact-form-input"
                   value={formData.phone}
                   onChange={onChange}
                   onKeyDown={(e) => {
@@ -186,7 +190,7 @@ function ContactSection({ formData, formSubmitted, isSubmitting, successMessage,
                 )}
               </button>
 
-              <p className="form-disclaimer">
+              <p className="contact-form-disclaimer">
                 Al registrarte aceptas recibir notificaciones sobre el
                 lanzamiento de Zona². No compartiremos tu información.
               </p>

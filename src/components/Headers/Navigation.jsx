@@ -101,7 +101,7 @@ function Navigation({ onScrollToSection, onOpenModal }) {
             Acerca del Proyecto
           </button>
           <button
-            onClick={() => handleNavClick(() => window.open("https://zona2.mx/neworg/", "_blank"))}
+            onClick={() => handleNavClick(() => navigate("/establishments"))}
             className="nav-link"
           >
             Organizadores/Establecimientos

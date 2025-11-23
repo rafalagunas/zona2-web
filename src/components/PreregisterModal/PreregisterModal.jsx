@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Gift, Percent, Wallet, Check, X } from "lucide-react";
+import "./PreregisterModal.css";
 
 function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitting, successMessage, errorMessage, onChange, onSubmit }) {
   if (!isOpen) return null;
@@ -10,16 +11,16 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
   }
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="preregister-modal-overlay" onClick={onClose}>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.3 }}
-        className="modal-content"
+        className="preregister-modal-content"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose}>
+        <button className="preregister-modal-close" onClick={onClose}>
           <X size={24} />
         </button>
         <div className="preregister-content">
@@ -62,7 +63,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
 
           <div className="preregister-form-container">
             <form onSubmit={onSubmit} className="preregister-form">
-              <div className="form-group">
+              <div className="preregister-form-group">
                 <label htmlFor="firstName">Nombre</label>
                 <input
                   type="text"
@@ -90,7 +91,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                 />
               </div>
 
-              <div className="form-group">
+              <div className="preregister-form-group">
                 <label htmlFor="email" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'nowrap' }}>
                   <span>Correo electrónico</span>
                   {errorMessage && (
@@ -117,7 +118,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                 />
               </div>
 
-              <div className="form-group">
+              <div className="preregister-form-group">
                 <label htmlFor="phone">Teléfono</label>
                 <input
                   type="tel"
@@ -147,7 +148,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
 
               <button
                 type="submit"
-                className="btn-submit"
+                className="preregister-btn-submit"
                 disabled={formSubmitted || isSubmitting}
               >
                 {formSubmitted ? (
@@ -162,7 +163,7 @@ function PreregisterModal({ isOpen, onClose, formData, formSubmitted, isSubmitti
                 )}
               </button>
 
-              <p className="form-disclaimer">
+              <p className="preregister-form-disclaimer">
                 Al registrarte aceptas recibir notificaciones sobre el
                 lanzamiento de Zona². No compartiremos tu información.
               </p>

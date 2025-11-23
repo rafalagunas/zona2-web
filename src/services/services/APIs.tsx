@@ -37,6 +37,11 @@ const APIs = {
     return ConfigurationAPIs.post<any>(path, data);
   },
 
+  createEstablishment: async (data: any): Promise<any> => {
+    const path = 'sec-users/establishments-register';
+    return ConfigurationAPIs.post<any>(path, data);
+  },
+
 
   getSecUser: async (): Promise<any> => {
     const path = 'sec-users/me';
